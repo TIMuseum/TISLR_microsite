@@ -16,7 +16,7 @@
              <h1>Urban Planning</h1>
             <h2>For the Deep</h2>
         </div>
-        <h4>How the Design for the New Treasure Island Reckons with Sea Level Rise</h4>
+        <h4>How the Design for the New Treasure<br> Island Reckons with Sea Level Rise</h4>
         <button class="downArrow"type="button"onclick= "nextSection(ClimateMaps)">
             <img src="icons/down.svg"> 
         </button>   
@@ -34,10 +34,14 @@
     </div>
     <section id="ClimateMaps">  
         <div class="TISLR1">
-            <h2>Treasure <br>island &<br>Sea Level Rise</h2>
+            <div>
+            <h2>Treasure island &<br>Sea Level Rise</h2>
             <h3>100 year Flood</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque omnis rerum consequuntur modi totam, tempore blanditiis mollitia ad. Error eveniet modi autem fugiat, atque distinctio voluptatem exercitationem? Unde, magnam quod? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illum aliquid recusandae quibusdam sunt, aut quasi. Unde minus labore in facilis quis quidem vitae obcaecati mollitia deserunt, itaque deleniti delectus beatae.</p>
-            <div class="modelShifter">
+            <p>These dynamic flood maps demonstrate probable flooding on TI in the event of a 100-year storm at various points over the next quarter-century. The maps on the left and right show before and after --that is expected flooding without redevelopment, as the island has been for its first 100 years, and with the reconstruction planned by the Treasure Island Development Authority, a state agency. Use the slider to show different outcomes for future scenarios, with and without the redevelopment.</p>
+            <p>Scientists expect sea levels to rise at TI by between 5 and 16 inches by 2050, and between 24 and 66 inches by 2100, depending on how quickly glaciers melt and oceans warm. The Treasure Island Development Authority (TIDA) plans redevelopment in two phases in anticipation of the rising seas. The first phase will protect the island from 16 inches of sea-level rise (SLR), expected by mid-century.  The second phase of development will protect the island from 36 inches of SLR, expected by the end of this century. </p>
+            <p>The flood simulations here are run for two SLR projections. The medium scenario includes 11” of sea-level rise by 2050, which is near the middle of the range of possibilities. The high scenario anticipates 24” of SLR by 2050, which is near the high end.  A flood of this height might flow across some of planned setbacks (landscape adaptations), but would not harm any of the buildings.</p>
+        </div>
+              <div class="modelShifter">
             <div id="scenarios">
                 <button class="scenario selected" type="button"><h7>medium slr</h7></button>
                 <button class="scenario"type="button"><h7>high slr</h7></button>
@@ -78,13 +82,13 @@
         <div id="without">
            <div class="nAdMap">
             <h4><span>Without</span> redevelopment</h4>
-           <img src="media/FloodBase.png"> 
+           <img src="media/NDbase.png"> 
            <img class="floodmap adMap"src="media/FLOOD_M2022NA.png"> </div>
         </div>
         </div>
-            <button class="downArrow"type="button"onclick= "nextSection(introNar)">
+            <!-- <button class="downArrow"type="button"onclick= "nextSection(introNar)">
                 <img src="icons/down.svg"> 
-            </button>   
+            </button>    -->
         </section>
         <section id="introNar">  
         </section>
@@ -119,7 +123,7 @@ increasing =true;
     ground.rotation.z = -90 * (Math.PI / 180);
     scene.add( ground );
     const textureLoader = new THREE.TextureLoader();
-     textureLoader.load( 'textures/waterLighttexturedBkgrnd.png', function ( map ) {
+     textureLoader.load( 'textures/waterBkgrnd.png', function ( map ) {
         map.wrapS = THREE.RepeatWrapping;
         map.wrapT = THREE.RepeatWrapping;
         map.repeat.set( 1, 1 );

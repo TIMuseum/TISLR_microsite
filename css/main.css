@@ -155,11 +155,17 @@ width: inherit;
   margin-bottom: 100px; 
 }
 #titleTxt h1{
-  font-size: 110px; 
+  font-size: 100px; 
+  font-weight: 300; 
 }
 #titleTxt h2{
-  font-size: 80px; 
-  font-style: italic;
+  font-size: 90px; 
+  font-weight: 300; 
+}
+#TitleScreen h4{
+  font: 24px; 
+  line-height: 150%; 
+  letter-spacing: 1px; 
 }
  /******************************** LUCIEN MAP****************************/
  #ClimateMaps,#interactive, #sliderBar, #scenarios, #topSLR, #year{
@@ -170,18 +176,25 @@ width: inherit;
 background-color: #1292AF; 
  }
  .TISLR1{
-   width: 38%; 
+   width: 42%; 
+   display: flex; 
+   flex-direction: column; 
+   /* border: 1px solid red;  */
+   justify-content: space-between; 
+ }
+ .TISLR1 p{
+   margin-bottom: 12px; 
  }
  #ClimateMaps h2{
    font-size: 54px;
    font-weight: 200;
-   margin-bottom: 30px; 
+   margin-bottom: 20px; 
  }
  #ClimateMaps h3{
   font-weight: 300;
   font-size: 24px; 
   font-style: italic; 
-  margin-bottom: 60px; 
+  margin-bottom: 40px; 
  }
  #ClimateMaps h4{
    font-size: 24px; 
@@ -201,6 +214,9 @@ width: 25%;
 font-weight: 200; 
 font-size: 14px; 
   }
+  #ClimateMaps h7{
+    font-size: 12px; 
+  }
  #interactive{
   align-items: center; 
   position: absolute; 
@@ -209,20 +225,19 @@ font-size: 14px;
   /* border: 1px solid blue;  */
  }
  .modelShifter{
-  position: absolute; 
-  width: 30%; 
-  bottom: 25%; 
+  position: relative; 
+  width: 100%; 
   /* border: 1px solid purple;  */
  }
  #scenarios{
-  margin-bottom: 30px; 
+  margin-bottom: 20px; 
   justify-items: right;
   width: 100%; 
   justify-content: flex-end; 
   /* border: 1px solid purple;  */
 }
 .scenario{
-  padding: 8px 10px; 
+  padding: 5px 8px; 
   margin: 0px 10px; 
 }
 .selected{
@@ -233,12 +248,12 @@ font-size: 14px;
   flex-direction: column; 
   /* border: 1px solid red;  */
   text-align: center; 
-  width: 75%; 
+  width: 70%; 
  height: 100%;
 }
 #sliderRect{
-  height: 20px; 
-  width: calc(75% - 20px);
+  height: 15px; 
+  width: calc(70% - 20px);
   position: absolute; 
   top: 40px; 
  margin: 0px 10px; 
@@ -247,8 +262,8 @@ font-size: 14px;
 }
 .sliderRectEND{
  border-radius: 50%; 
- height: 20px; 
- width: 20px; 
+ height: 15px; 
+ width: 15px; 
  background-color: #0F6F84; 
  position: absolute; 
  top: 40px; 
@@ -257,8 +272,8 @@ font-size: 14px;
 right: 0%; 
 }
  .circle{
-   width: 20px; 
-   height: 20px; 
+   width: 15px; 
+   height: 15px; 
    position: absolute; 
   border-radius: 50%; 
   top: 40px; 
@@ -266,7 +281,7 @@ right: 0%;
   border: 2px solid #4CCDEA; 
  }
  .circle.circle:nth-child(2n){
-   left: 61%; 
+   left: 63%; 
  }
  .circle:nth-child(3n){
    right: 0%; 
@@ -310,3 +325,11 @@ left: 50%;
    /* border: 2px solid red;  */
  }
 
+ #loading {
+position: absolute; 
+top: 35%; 
+
+ }
+ #loading h1,  #loading h2{
+  color: #0F6F84; 
+ }

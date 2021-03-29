@@ -67,7 +67,7 @@ height: 96vh;
 /* border: 3px solid orange;  */
 position: relative; 
 overflow: hidden; 
-padding: 7% 5%; 
+padding: 5% 5%; 
  }
  /******************************** BUTTONS ****************************/
 button{
@@ -175,13 +175,29 @@ width: inherit;
  #ClimateMaps{
 background-color: #1292AF; 
  }
- .TISLR1{
-   width: 42%; 
-   display: flex; 
-   flex-direction: column; 
-   /* border: 1px solid red;  */
-   justify-content: space-between; 
+.TISLR2{
+  height: 96vh; 
+  position: absolute;
+  top: 0; 
+ display: flex; 
+ flex-direction: column; 
+ /* border: 1px solid red;  */
  }
+ .TISLR1{
+   width: 40%; 
+  display: flex; 
+  flex-direction: column; 
+  height: 96vh; 
+   /* border: 2px solid magenta;  */
+   position: absolute;
+   justify-content: space-around;
+   top: 0; 
+ }
+ .TISLR2{
+  width: 43%; 
+  justify-content: space-around; 
+  left: 50%; 
+}
  .TISLR1 p{
    margin-bottom: 12px; 
  }
@@ -217,28 +233,31 @@ font-size: 14px;
   #ClimateMaps h7{
     font-size: 12px; 
   }
+  .modelShifter{
+    position: relative; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: right;
+    align-items: flex-end; 
+   height: 125px; 
+    width: 100%; 
+    /* border: 5px solid purple;  */
+   }
  #interactive{
   align-items: center; 
-  position: absolute; 
-  width: 100%; 
-  height: 100px; 
-  /* border: 1px solid blue;  */
- }
- .modelShifter{
   position: relative; 
   width: 100%; 
-  /* border: 1px solid purple;  */
+  height: 80px; 
  }
  #scenarios{
-  margin-bottom: 20px; 
-  justify-items: right;
-  width: 100%; 
-  justify-content: flex-end; 
-  /* border: 1px solid purple;  */
+  margin-bottom: 10px; 
+  justify-content: space-around;
+  width: 70%; 
 }
 .scenario{
   padding: 5px 8px; 
   margin: 0px 10px; 
+
 }
 .selected{
  background-color:#0F6F84; 
@@ -246,16 +265,15 @@ font-size: 14px;
 }
  #sliderBar{
   flex-direction: column; 
-  /* border: 1px solid red;  */
   text-align: center; 
   width: 70%; 
  height: 100%;
 }
 #sliderRect{
   height: 15px; 
-  width: calc(70% - 20px);
+  width: calc(70% - 15px);
   position: absolute; 
-  top: 40px; 
+  top: 30px; 
  margin: 0px 10px; 
   background-color: #0F6F84; 
   box-shadow: inset 4px 4px 4px rgba(0,0,0,0.25);
@@ -266,7 +284,7 @@ font-size: 14px;
  width: 15px; 
  background-color: #0F6F84; 
  position: absolute; 
- top: 40px; 
+ top: 30px; 
 }
 #end{
 right: 0%; 
@@ -276,7 +294,7 @@ right: 0%;
    height: 15px; 
    position: absolute; 
   border-radius: 50%; 
-  top: 40px; 
+  top: 30px; 
   background-color:none;
   border: 2px solid #4CCDEA; 
  }
@@ -290,19 +308,13 @@ right: 0%;
    border: 0px; 
    background-color: #F9ECDC
  }
-
  #yrSelected h6{
    color: #F9ECDC;
  }
- .TISLR2{
-  width: 50%; 
-  height: 100%; 
-flex-direction: column; 
-position: absolute; 
-left: 50%; 
+.TISLR2 h4{
+  margin-bottom: 20px; 
 }
 .nAdMap, .adMap{
-  position: absolute ;
   top: (0% + 150px); 
   left: 0%; 
   width: 100%; 
@@ -311,25 +323,19 @@ left: 50%;
   width: 100%; 
 }
  .floodmap{
-   position: absolute ;
-   /* top: 0% ;  */
+   position: absolute;
    left: 0%; 
    width: 100%; 
    z-index: 10; 
  }
- .adMap{
-  top: (0% + 150px); 
- }
- .nAdMap {
-   top: 50%; 
-   /* border: 2px solid red;  */
- }
-
  #loading {
 position: absolute; 
 top: 35%; 
-
  }
  #loading h1,  #loading h2{
   color: #0F6F84; 
+ }
+
+ #climatTxt{
+   /* border: 1px solid pink;  */
  }

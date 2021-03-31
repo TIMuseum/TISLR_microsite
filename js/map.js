@@ -15,6 +15,8 @@ let ground, map,medBLue,litBlue, groupSea,mapGroup, eggs;
 //INTERACTIVE
 let eggTween= []; 
 let lowerFog = false; 
+let zRotation; 
+//DOM ELEMENTS
 const canvas = document.getElementById("myCanvas");
 var loadLine = document.getElementById("loadLine"); 
 var num = document.getElementById("num");
@@ -22,25 +24,34 @@ var labels = document.getElementById("labels");
 var load = document.getElementById("loading"); 
 var titles = document.querySelectorAll(".title"); 
 
+// function mapWindow(input, in_min, in_max, out_min, out_max) {
+//   return (input - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+// }
+Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+  return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
 manager.onLoad = function ( ) {
-	console.log('Loading Complete!');
+  console.log('Loading Complete!');
   load.classList.add('fadeAway');
-lowerFog =true; 
-clouds.forEach(cloud =>{
-  let newcloudPos;
-  let ran = Math.random(); 
-  if(cloud.position.x>0){
-    newcloudPos = new THREE.Vector3( cloud.position.x+ Math.random()*canvas.clientWidth*2 +canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*( -canvas.clientHeight*2)-canvas.clientHeight*.5);
-  }
-  else{
-    newcloudPos = new THREE.Vector3(  cloud.position.x+Math.random()*(-canvas.clientWidth*2)-canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*canvas.clientHeight*2+canvas.clientHeight*.5); 
-  }
-  new TWEEN.Tween(cloud.position).to( newcloudPos, 5000 ).delay(2000) 
-  .easing(TWEEN.Easing.Quadratic.InOut).onComplete(()=>{
-    labels.style="display:block";  
-    cameraBegin(camera); 
-  }).start();
-})
+  lowerFog =true; 
+  let windowRatio =window.innerWidth/window.innerHeight; 
+  zRotation = windowRatio.map(.75, 2.75, .000010,.000050); 
+  clouds.forEach(cloud =>{
+    let newcloudPos;
+    let ran = Math.random(); 
+    if(cloud.position.x>0){
+      newcloudPos = new THREE.Vector3( cloud.position.x+ Math.random()*canvas.clientWidth*2 +canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*( -canvas.clientHeight*2)-canvas.clientHeight*.5);
+    }
+    else{
+      newcloudPos = new THREE.Vector3(cloud.position.x+Math.random()*(-canvas.clientWidth*3)-canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*canvas.clientHeight*2+canvas.clientHeight*.5); 
+    }
+    new TWEEN.Tween(cloud.position).to( newcloudPos, 5000 ).delay(2000) 
+    .easing(TWEEN.Easing.Quadratic.InOut).onComplete(()=>{
+      labels.style="display:block";  
+      cameraBegin(camera); 
+    }).start();
+  })
 };
 manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
 	console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
@@ -56,7 +67,7 @@ function loadScreen(){
     basicScene(); 
     makeClouds(); 
     basePlane()
-    // makeMapElements(); 
+    makeMapElements(); 
     animate();
 }
 window.addEventListener( 'resize', onWindowResize );
@@ -116,7 +127,7 @@ function makeClouds(){
       clouds[i] = object;
       scene.add(object);
     }
-    makeMapElements(); 
+    // makeMapElements(); 
     return clouds; 
   }
   function basePlane(){
@@ -144,7 +155,7 @@ function makeClouds(){
   function makeMapElements(){
     //ADD BAY AREA LAND 
     let landT = loader.load("../illustrations/landMass.png"); 
-    var planeGeometry3 = new THREE.PlaneGeometry(5694.26, 3200, 100, 100);
+    var planeGeometry3 = new THREE.PlaneGeometry(6750.4,3179.2, 100, 100);
     var planeMaterial3= new THREE.MeshStandardMaterial({
       map: landT,
       transparent: true,
@@ -153,7 +164,7 @@ function makeClouds(){
      landMass = new THREE.Mesh(planeGeometry3, planeMaterial3);
      landMass.rotation.x = -90 * (Math.PI / 180);
      landMass.rotation.z =  55 * (Math.PI / 180);
-     landMass.position.set(45, -5, -280);
+     landMass.position.set(360, -5, -750);
     scene.add(landMass);
 //WATER TEXTURES
     const mediumBLue = loader.load("../textures/waterTextured.png");
@@ -270,7 +281,7 @@ title.classList.add("fadeAway2");
     .onUpdate(()=>{
       counter++; 
       if(camera.rotation.z>=0){
-   camera.rotation.z -=.00001 *counter* (Math.PI / 180); 
+   camera.rotation.z -=zRotation *counter* (Math.PI / 180); 
       }
     })
     .onComplete(() =>{

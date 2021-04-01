@@ -237,7 +237,7 @@ font-size: 14px;
     justify-content: right;
     /* align-items: flex-end;  */
   align-items: flex-start; 
-    width: 80%; 
+    width: 75%; 
     /* border: 2px solid magenta;  */
 
    }
@@ -247,13 +247,13 @@ font-size: 14px;
 position: relative; 
   display: flex; 
   flex-direction: column; 
-  width: 25%; 
+  width: 30%; 
   height: 80px; 
   /* border: 5px solid purple;  */
 }
 .scenario{
   padding: 5px 8px; 
-  margin: 0px 20px; 
+  margin: 0px 15%; 
 }
 .selected{
  background-color:#0F6F84; 
@@ -263,7 +263,7 @@ position: relative;
   flex-direction: column; 
   position: relative; 
   text-align: center; 
-  width: 75%; 
+  width: 70%; 
   height: 80px; 
   /* border: 1px solid red;  */
 }
@@ -330,10 +330,10 @@ right: 0%;
 .stickyBlock{
   height: 3000px; 
   justify-content: center; 
+  position: relative; 
 }
 #bigPara, .doublePara{
  position:sticky; 
- top: 35%; 
  width: 60%; 
  margin: 0px auto; 
   margin-top: 35%; 
@@ -344,12 +344,14 @@ right: 0%;
 .doublePara{
   display: flex; 
   width: 75%; 
+  top: 35%; 
   /* border: 2px solid blue;  */
   height: 40vh; 
-  justify-content: space-around; 
+  justify-content: center; 
 }
 #bigPara{
   font-size: 40px; 
+  top: 40%; 
 }
 #smallPara{
   font-size: 22px; 
@@ -357,13 +359,16 @@ right: 0%;
 }
 #smallPara:nth-child(1){
   /* border: 1px solid red;  */
+  margin-right: 5%; 
   align-self: flex-start
 }
 #smallPara:nth-child(2){
   /* border: 1px solid green;  */
   align-self: flex-end; 
 }
-
+#noImg{
+  height: 96vh; 
+}
 
 .stickyBlock .imgContainer, .stickyBlock .verticalImg{
 position: absolute; 
@@ -373,7 +378,35 @@ left: 20%;
 z-index: 10;  
 /* border: 1px solid red;  */
 }
-
+ #one{
+  width: 40%; 
+  left: 10%; 
+  /* border: 1px solid red;  */
+}
+ #two{
+  width: 40%; 
+  left: 52%; 
+  top: 50%; 
+  /* border: 1px solid red;  */
+}
+ #three{
+  width: 40%; 
+  left: 50%; 
+  top: 500px; 
+}
+#vulZone{
+  width: 45%; 
+  left: 10%; 
+  top: 20%; 
+}
+#sfArticle{
+  width: 15%; 
+  left: 60%; 
+}
+#sfArticle .caption{
+  /* border: 2px solid red;  */
+  width: 100%; 
+}
 .imgContainer img{
   width: 100%; 
 }
@@ -381,6 +414,7 @@ z-index: 10;
   background-color: #0F6F84; 
   margin-top: 8px; 
   padding: 8px 10px; 
+  width: 70%; 
 }
 /*****************************************MAIN MAP********************************/
  #loadingBar{

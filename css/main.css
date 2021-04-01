@@ -90,6 +90,21 @@ button:hover{
    bottom:2%; 
    left: calc(50vw - 30px); 
  }
+ .exploreBtn{
+   background: #F9ECDC; 
+   padding: 16px 20px; 
+   position: sticky;
+   left: 40%;
+   margin:0px auto; 
+   top: 50%; 
+   box-shadow:-4px 4px 4px #0F6F84;
+ }
+ .exploreBtn h3{
+   color: #0F6F84; 
+   line-height: 2em;
+   /* letter-spacing:.06em;  */
+   word-spacing: .1em; 
+ }
   /******************************** GENERAL TYPE ****************************/
  h1, h2, h3, h4, h5, h6, h7{
 color: #F9ECDC; 
@@ -182,20 +197,23 @@ height: 100vh;
   top: 0; 
  display: flex; 
  flex-direction: column; 
- justify-content: space-around; 
+
  align-items: center; 
  }
  .TISLR1{
    width: 37%; 
+   justify-content: space-around; 
    /* border: 1px solid red;  */
  }
  .TISLR2{
   width: 39%; 
   left: 54%; 
+  justify-content: center;
+   /* border: 1px solid red;  */
 }
  .TISLR1 p{
    margin-bottom: 12px; 
-   font-size: 18px; 
+   font-size: 16px; 
    /* border: 1px solid red;  */
  }
  #ClimateMaps h2{
@@ -238,8 +256,8 @@ font-size: 14px;
     /* align-items: flex-end;  */
   align-items: flex-start; 
     width: 75%; 
-    /* border: 2px solid magenta;  */
-
+margin: 7% 0%; 
+  /* border: 5px solid purple;  */
    }
  #scenarios{
   margin-bottom: 10px; 
@@ -249,7 +267,6 @@ position: relative;
   flex-direction: column; 
   width: 30%; 
   height: 80px; 
-  /* border: 5px solid purple;  */
 }
 .scenario{
   padding: 5px 8px; 

@@ -1,7 +1,12 @@
-window.addEventListener("load", init);
-function init(){
-    window.scrollTo(0, 0); 
-}
+// window.addEventListener("load", function(){
+//     // preventDefault();
+//     var scrollOptions = {
+//       left: 0,
+//       top: 0,
+//       behavior: 'auto'
+//     }
+//     window.scrollTo(scrollOptions); 
+// }); 
 
 function nextSection(element){
     console.log("clicked!");

@@ -11,6 +11,8 @@
 var SLRswitchers = document.querySelectorAll(".SLRwitch"); 
 var SLRInches = document.getElementById("topSLR"); 
 var years = document.getElementById("year"); 
+var noDev = document.querySelector(".nAdMap"); 
+var Dev = document.querySelector(".adMap"); 
 
 function nextSection(element){
     console.log("clicked!");
@@ -68,4 +70,8 @@ for (let i=0; i<=2; i++){
  SLRInches.children[index].children[0].style ="color: #F9ECDC"; 
  years.children[index].children[0].style ="color: #F9ECDC"; 
 }
+for(let i=2; i<5; i++){
+  noDev.children[i].style ="opacity:0"; 
+}
+noDev.children[index+2].style ="opacity:1"; 
 }

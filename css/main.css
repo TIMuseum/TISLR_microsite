@@ -343,6 +343,12 @@ right: 0%;
    width: 100%; 
    z-index: 10; 
  }
+ .medIMG, .highIMG {
+   opacity: 0;  
+ }
+.selectedIMG{
+   opacity: 1; 
+ }
 /**************INTRO NARS *******************/
 .stickyBlock{
   height: 3000px; 

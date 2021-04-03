@@ -99,27 +99,27 @@
            <div class="modelShifter">
            <div id="sliderBar">
             <div id="topSLR">
-                <button id="yrSelected"type="button"><h6>0 in</h6></button>
-                <button type="button"><h6>3 in</h6></button>
-                <button type="button"><h6>7 in</h6></button>
-               </div>
+                <div id="yrSelected"type="button"><h6>0 in</h6></div>
+                <div type="button"><h6>3 in</h6></div>
+                <div type="button"><h6>7 in</h6></div>
+            </div>
             <div id="slider">
                 <div id="sliderRect"></div>
                 <div class="sliderRectEND"></div>
                 <div class="sliderRectEND" id="end"></div>
             </div>
-            <div class="circle "></div>
-            <div class="circle"></div>
-            <div class="circle currentCirc"></div>
+           <button id="firstYr" class="SLRwitch  currentCirc" onclick="switchYR(firstYr, 0)"> <div></div></button> 
+           <button id="secondYr" class="SLRwitch" onclick="switchYR(secondYr, 1)"> <div></div></button> 
+           <button id="thirdYr"class="SLRwitch" onclick="switchYR(thirdYr, 2)"><div></div></button> 
             <div id="year">
-                <button id="yrSelected"type="button"><h6 >2022</button>
-                <button type="button"><h6>2035</h6></button>
-                <button type="button"><h6>2020</h6></button>
+                <div id="yrSelected"type="button"><h6 >2022</div>
+                <div type="button"><h6>2035</h6></div>
+                <div type="button"><h6>2050</h6></div>
                </div>
             </div>
             <div id="scenarios">
-                <button class="scenario selected" type="button"><h7>medium slr</h7></button>
-                <button class="scenario"type="button"><h7>high slr</h7></button>
+                <button id="med" class="scenario selected" type="button" onclick="switchScenarios(med, high)"><h7>medium slr</h7></button>
+                <button id="high"class="scenario"type="button" onclick="switchScenarios(high, med)"><h7>high slr</h7></button>
             </div>
         </div>
            <div class="nAdMap">

@@ -36,7 +36,8 @@ manager.onLoad = function ( ) {
   load.classList.add('fadeAway');
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
-  zRotation = windowRatio.map(.75, 2.75, .000010,.000050); 
+  console.log(windowRatio); 
+  zRotation = windowRatio.map(.9, 4, .000080,.000005); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 
@@ -276,7 +277,7 @@ title.classList.add("fadeAway2");
   }); 
     let coords = new THREE.Vector3(camMain.x, camMain.y, camMain.z);
     var tween = new TWEEN.Tween(camera.position)
-    .to(coords, 5500).delay(2000) 
+    .to(coords, 5000).delay(2000) 
     .easing(TWEEN.Easing.Quadratic.InOut)
     .onUpdate(()=>{
       counter++; 

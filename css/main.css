@@ -304,7 +304,7 @@ position: relative;
 #end{
 right: 0%; 
 }
- .circle{
+.SLRwitch{
    width: 15px; 
    height: 15px; 
    position: absolute; 
@@ -313,10 +313,10 @@ right: 0%;
   background-color:none;
   border: 2px solid #4CCDEA; 
  }
- .circle.circle:nth-child(2n){
+ #secondYr{
    left: 50%; 
  }
- .circle:nth-child(3n){
+ #thirdYr{
    right: 0%; 
  }
  .currentCirc{

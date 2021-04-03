@@ -16,6 +16,7 @@ let ground, map,medBLue,litBlue, groupSea,mapGroup, eggs;
 let eggTween= []; 
 let lowerFog = false; 
 let zRotation; 
+let notAtzero =false;
 //DOM ELEMENTS
 const canvas = document.getElementById("myCanvas");
 var loadLine = document.getElementById("loadLine"); 
@@ -77,6 +78,10 @@ function animate(time) {
 if(lowerFog ==true && scene.fog.density>0){
   scene.fog.density-=(.000005); 
 }
+if(notAtzero ==true && camera.rotation.z>0){
+  console.log("not there yet")
+  camera.rotation.z -=.0008; 
+};
 groupSea.position.x+=.04; 
   requestAnimationFrame(animate);
   TWEEN.update(time); 
@@ -287,6 +292,9 @@ title.classList.add("fadeAway2");
     })
     .onComplete(() =>{
       clouds.forEach(cloud=>{scene.remove(cloud)}); 
+      if(camera.rotation.z >0){
+       notAtzero =true; 
+      }
      jumpEggs();  
      mainMapView(); 
     })

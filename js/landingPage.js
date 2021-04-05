@@ -1,12 +1,12 @@
-// window.addEventListener("load", function(){
-//     // preventDefault();
-//     var scrollOptions = {
-//       left: 0,
-//       top: 0,
-//       behavior: 'auto'
-//     }
-//     window.scrollTo(scrollOptions); 
-// }); 
+window.addEventListener("load", function(){
+    // preventDefault();
+    var scrollOptions = {
+      left: 0,
+      top: 0,
+      behavior: 'auto'
+    }
+    window.scrollTo(scrollOptions); 
+}); 
 
 var SLRswitchers = document.querySelectorAll(".SLRwitch"); 
 var SLRInches = document.getElementById("topSLR"); 
@@ -72,6 +72,8 @@ for (let i=0; i<=2; i++){
 }
 for(let i=2; i<5; i++){
   noDev.children[i].style ="opacity:0"; 
+  Dev.children[i].style ="opacity:0"; 
 }
 noDev.children[index+2].style ="opacity:1"; 
+Dev.children[index+2].style ="opacity:1"; 
 }

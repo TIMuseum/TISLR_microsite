@@ -89,6 +89,7 @@ button:hover{
    position: absolute; 
    bottom:2%; 
    left: calc(50vw - 30px); 
+   animation: crescendo .7s alternate infinite ease-in; 
  }
  .exploreBtn{
    background: #F9ECDC; 
@@ -98,6 +99,7 @@ button:hover{
    margin:0px auto; 
    top: 50%; 
    box-shadow:-4px 4px 4px #0F6F84;
+   animation: crescendo2 .7s alternate infinite ease-in; 
  }
  .exploreBtn h3{
    color: #0F6F84; 
@@ -123,7 +125,7 @@ size: 12px;
 p{
   font-family: 'EB Garamond', serif;
   color: #F9ECDC; 
-  size: 10px; 
+  size: 12px; 
 }
  /******************************** NAVS****************************/
  .nav{
@@ -151,7 +153,7 @@ p{
  .navItem img{
    padding: 5px; 
   height: 100%; 
-width: inherit; 
+  width: inherit; 
  }
  #TopNav{
    position: sticky; 
@@ -377,12 +379,12 @@ right: 0%;
   top: 40%; 
 }
 #smallPara{
-  font-size: 22px; 
+  font-size: 24px; 
   width: 40%; 
 }
 #smallPara:nth-child(1){
   /* border: 1px solid red;  */
-  margin-right: 5%; 
+  margin-right: 3%; 
   align-self: flex-start
 }
 #smallPara:nth-child(2){
@@ -392,8 +394,10 @@ right: 0%;
 #noImg{
   height: 96vh; 
 }
-
-.stickyBlock .imgContainer, .stickyBlock .verticalImg{
+.stickyBlock{
+  position: relative; 
+}
+ .imgContainer, .stickyBlock.verticalImg{
 position: absolute; 
 display: block; 
 width: 60%; 
@@ -409,13 +413,18 @@ z-index: 10;
  #two{
   width: 40%; 
   left: 52%; 
-  top: 50%; 
+  top: 48%; 
   /* border: 1px solid red;  */
 }
  #three{
-  width: 40%; 
+  width: 38%; 
   left: 50%; 
-  top: 500px; 
+  top: 700px; 
+}
+#four{
+  top: 5%; 
+  left: 10%; 
+  width: 38%; 
 }
 #vulZone{
   width: 45%; 
@@ -424,20 +433,21 @@ z-index: 10;
 }
 #sfArticle{
   width: 15%; 
-  left: 60%; 
+  left: 30%; 
+  top: 1600px; 
 }
-#sfArticle .caption{
+/* #sfArticle .caption{
   /* border: 2px solid red;  */
-  width: 100%; 
-}
+  /* width: 100%;  */
+
 .imgContainer img{
   width: 100%; 
 }
 .caption{
   background-color: #0F6F84; 
   margin-top: 8px; 
-  padding: 8px 10px; 
-  width: 70%; 
+  padding: 12px 14px; 
+  width: 100%; 
 }
 /*****************************************MAIN MAP********************************/
  #loadingBar{
@@ -507,6 +517,6 @@ z-index: 10;
         transform: scale(1);
     }
     100% {
-        transform: scale(1.1);
+        transform: scale(1.05);
     }
   }

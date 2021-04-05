@@ -38,7 +38,7 @@ manager.onLoad = function ( ) {
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
   console.log(windowRatio); 
-  zRotation = windowRatio.map(.9, 4, .000080,.000005); 
+  zRotation = windowRatio.map(.75, 4, .000020,.000001); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 

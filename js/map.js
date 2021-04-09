@@ -3,14 +3,15 @@ let manager = new THREE.LoadingManager();
 const loader = new THREE.TextureLoader(manager);
 //CAMERA VARIABLES
 const fov = 75;
-let camStart = {x:-150, y:2050, z:0}; 
-// let camStart = {x:-150, y:100, z:0}; 
+// let camStart = {x:-150, y:2050, z:0}; 
+let camStart = {x:-150, y:200, z:0}; 
 let camMain = {x:-100, y:140, z:10}; 
 //OBJECT VARIABLES
 var clouds = [];
 var seas =[]; 
 let chapel, skyscrapper, mural, beach, playground; 
-let hist, geo, com, ada, park; 
+let subPortalObj= []; 
+let BLD1, BLD2, BLD3, Nimitz, YBL, Torp; 
 let ground, map,medBLue,litBlue, groupSea,mapGroup, eggs; 
 //INTERACTIVE
 let eggTween= []; 
@@ -32,38 +33,38 @@ Number.prototype.map = function (in_min, in_max, out_min, out_max) {
   return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-manager.onLoad = function ( ) {
-  console.log('Loading Complete!');
-  load.classList.add('fadeAway');
-  lowerFog =true; 
-  let windowRatio =window.innerWidth/window.innerHeight; 
-  console.log(windowRatio); 
-  zRotation = windowRatio.map(.75, 4, .000020,.000001); 
-  clouds.forEach(cloud =>{
-    let newcloudPos;
-    let ran = Math.random(); 
-    if(cloud.position.x>0){
-      newcloudPos = new THREE.Vector3( cloud.position.x+ Math.random()*canvas.clientWidth*2 +canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*( -canvas.clientHeight*2)-canvas.clientHeight*.5);
-    }
-    else{
-      newcloudPos = new THREE.Vector3(cloud.position.x+Math.random()*(-canvas.clientWidth*3)-canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*canvas.clientHeight*2+canvas.clientHeight*.5); 
-    }
-    new TWEEN.Tween(cloud.position).to( newcloudPos, 5000 ).delay(2000) 
-    .easing(TWEEN.Easing.Quadratic.InOut).onComplete(()=>{
-      labels.style="display:block";  
-      cameraBegin(camera); 
-    }).start();
-  })
-};
-manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-	console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-};
-manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-	console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-  loadLine.style.width = (itemsLoaded / itemsTotal * 100) + '%';
-  let number =(itemsLoaded / itemsTotal * 100).toString(); 
-  num.innerHTML=number; 
-};
+// manager.onLoad = function ( ) {
+//   console.log('Loading Complete!');
+//   load.classList.add('fadeAway');
+//   lowerFog =true; 
+//   let windowRatio =window.innerWidth/window.innerHeight; 
+//   console.log(windowRatio); 
+//   zRotation = windowRatio.map(.75, 4, .000020,.000001); 
+//   clouds.forEach(cloud =>{
+//     let newcloudPos;
+//     let ran = Math.random(); 
+//     if(cloud.position.x>0){
+//       newcloudPos = new THREE.Vector3( cloud.position.x+ Math.random()*canvas.clientWidth*2 +canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*( -canvas.clientHeight*2)-canvas.clientHeight*.5);
+//     }
+//     else{
+//       newcloudPos = new THREE.Vector3(cloud.position.x+Math.random()*(-canvas.clientWidth*3)-canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*canvas.clientHeight*2+canvas.clientHeight*.5); 
+//     }
+//     new TWEEN.Tween(cloud.position).to( newcloudPos, 5000 ).delay(2000) 
+//     .easing(TWEEN.Easing.Quadratic.InOut).onComplete(()=>{
+//       labels.style="display:block";  
+//       cameraBegin(camera); 
+//     }).start();
+//   })
+// };
+// manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+// 	// console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+// };
+// manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+// 	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+//   loadLine.style.width = (itemsLoaded / itemsTotal * 100) + '%';
+//   let number =(itemsLoaded / itemsTotal * 100).toString(); 
+//   num.innerHTML=number; 
+// };
 window.addEventListener("load", loadScreen);
 function loadScreen(){
     basicScene(); 
@@ -79,7 +80,7 @@ if(lowerFog ==true && scene.fog.density>0){
   scene.fog.density-=(.000005); 
 }
 if(notAtzero ==true && camera.rotation.z>0){
-  console.log("not there yet")
+  // console.log("not there yet")
   camera.rotation.z -=.0008; 
 };
 groupSea.position.x+=.04; 
@@ -110,7 +111,7 @@ function basicScene(){
       camera.position.set(camStart.x, camStart.y, camStart.z);
       camera.rotation.x = -90 * (Math.PI / 180);
       //FIRST CAMERA STARTING ROTATION
-      camera.rotation.z =  55 * (Math.PI / 180);
+      // camera.rotation.z =  55 * (Math.PI / 180);
         //LIGHTS
         var hemLight = new THREE.HemisphereLight(0xFFFFFF, 0x0808dd, 1);
         scene.add(hemLight); 
@@ -172,7 +173,7 @@ function makeClouds(){
      landMass.rotation.z =  55 * (Math.PI / 180);
      landMass.position.set(360, -5, -750);
     scene.add(landMass);
-//WATER TEXTURES
+  //WATER TEXTURES
     const mediumBLue = loader.load("../textures/waterTextured.png");
     let waterWidth = 1000; 
     let waterHeight = 1250; 
@@ -199,7 +200,7 @@ function makeClouds(){
           groupSea.position.z-=2000; 
           groupSea.position.x+=2000; 
 
-//ADD THE BASE MAP 
+      //ADD THE BASE MAP 
           let mapT = loader.load("../illustrations/MainBaseMap.png"); 
           var planeGeometry = new THREE.PlaneGeometry(530.82, 600);
           var planeMaterial = new THREE.MeshStandardMaterial({
@@ -215,24 +216,14 @@ function makeClouds(){
       //ADD EASTER EGGS
       //Navy Church
           let navyChurchT = loader.load("../illustrations/navyCh.png")
-          var nGeo = new THREE.PlaneGeometry(27.625,25);
+          var nGeo = new THREE.PlaneGeometry(33.15,28.8);
           var nPlane = new THREE.MeshStandardMaterial({
             map: navyChurchT,
             transparent: true,
             depthWrite: false
             });
            chapel = new THREE.Mesh(nGeo, nPlane);
-          chapel.position.set(-108,-43, 0); 
-      //Playground
-          let playgroundT = loader.load("../illustrations/playground.png")
-          var pGeo = new THREE.PlaneGeometry(34.56,19.44);
-          var pPlane = new THREE.MeshStandardMaterial({
-            map: playgroundT,
-            transparent: true,
-            depthWrite: false
-            });
-          playground = new THREE.Mesh(pGeo, pPlane);
-          playground.position.set(-144,10, 0); 
+           chapel.position.set(-118,0, 40); 
         //Skyscrapper
         let skyScrT = loader.load("../illustrations/skyscrapper.png")
         var sGeo = new THREE.PlaneGeometry(19.76, 30);
@@ -242,7 +233,7 @@ function makeClouds(){
           depthWrite: false
           });
         skyscrapper = new THREE.Mesh(sGeo, sPlane);
-        skyscrapper.position.set(-105,-4, 0); 
+        skyscrapper.position.set(-105,0, 0); 
          //Beach
          let beachT = loader.load("../illustrations/beach.png")
          var bGeo = new THREE.PlaneGeometry(41.424, 28.8);
@@ -252,7 +243,7 @@ function makeClouds(){
            depthWrite: false
            });
          beach = new THREE.Mesh(bGeo, bPlane);
-         beach.position.set(-193,-48, 0); 
+         beach.position.set(-193,0, 48); 
           //Mural
           let muralT = loader.load("../illustrations/mural.png")
           var mGeo = new THREE.PlaneGeometry(40, 22.5);
@@ -262,18 +253,90 @@ function makeClouds(){
             depthWrite: false
             });
           mural = new THREE.Mesh(mGeo, mPlane);
-          mural.position.set(-170,35, 0); 
-  //EGGS GROUP
-          eggs=new THREE.Group();
-          eggs.add(chapel); 
-          eggs.add(playground); 
-          eggs.add(skyscrapper); 
-          eggs.add(beach); 
-          eggs.add(mural); 
-          eggs.rotation.x = -90 * (Math.PI / 180);
-          eggs.position.y = 3;
-          scene.add(eggs); 
+          mural.position.set(-150,0, -30); 
+      //EGGS GROUP
+          eggs= [chapel, skyscrapper, beach, mural];
+          eggs.forEach(egg=>{
+            egg.rotation.x = -90 * (Math.PI / 180);
+            egg.position.y = 3;
+            scene.add(egg); 
+          }); 
           scene.add(map);
+          camera.rotation.x = -90 * (Math.PI / 180);
+          history()
+          watchEvents(); 
+  }
+  function history(){
+      //BLD1
+      let BLD1T = loader.load("../illustrations/BLD1.png")
+      var b1Geo = new THREE.PlaneGeometry(40, 22.5);
+      var b1Plane = new THREE.MeshStandardMaterial({
+        map: BLD1T,
+        transparent: true,
+        depthWrite: false
+        });
+      BLD1 = new THREE.Mesh(b1Geo, b1Plane);
+      BLD1.position.set(-90,0, 53); 
+      //BLD2
+      let BLD2T = loader.load("../illustrations/BD2.png")
+      var b2Geo = new THREE.PlaneGeometry(38.4, 21.6);
+      var b2Plane = new THREE.MeshStandardMaterial({
+        map: BLD2T,
+        transparent: true,
+        depthWrite: false
+        });
+      BLD2 = new THREE.Mesh(b2Geo, b2Plane);
+      BLD2.position.set(-90,0, 15); 
+      //BLD3
+      let BLD3T = loader.load("../illustrations/BLD3.PNG")
+      var b3Geo = new THREE.PlaneGeometry(34.56, 25.119);
+      var b3Plane = new THREE.MeshStandardMaterial({
+        map: BLD3T,
+        transparent: true,
+        depthWrite: false
+        });
+      BLD3 = new THREE.Mesh(b3Geo, b3Plane);
+      BLD3.position.set(-90,0, -10); 
+       //nimitz
+       let NimitzT = loader.load("../illustrations/Nimitz.PNG")
+       var NimitzGeo = new THREE.PlaneGeometry(38.4, 21.6);
+       var NimitzPlane = new THREE.MeshStandardMaterial({
+         map: NimitzT,
+         transparent: true,
+         depthWrite: false
+         });
+         Nimitz = new THREE.Mesh(NimitzGeo, NimitzPlane);
+         Nimitz.position.set(-11,0, 30); 
+          //torp
+       let torpT = loader.load("../illustrations/Torpedo.png")
+       var torpGeo = new THREE.PlaneGeometry(30.72, 17.28);
+       var torpPlane = new THREE.MeshStandardMaterial({
+         map: torpT,
+         transparent: true,
+         depthWrite: false
+         });
+         Torp = new THREE.Mesh(torpGeo, torpPlane);
+         Torp.position.set(-10,0, -6); 
+         Torp.rotation.z =  9 * (Math.PI / 180);
+              //YBL
+       let yblT = loader.load("../illustrations/YBLH.png")
+       var yblGeo = new THREE.PlaneGeometry(33.92, 43.2);
+       var yblPlane = new THREE.MeshStandardMaterial({
+         map: yblT,
+         transparent: true,
+         depthWrite: false
+         });
+         YBL = new THREE.Mesh(yblGeo, yblPlane);
+         YBL.position.set(40,0, 13); 
+
+         subPortalObj[0] = [BLD1,BLD2,BLD3,Nimitz,Torp,YBL]
+         console.log( subPortalObj[1]); 
+         subPortalObj[0].forEach(history=>{
+          history.rotation.x = -90 * (Math.PI / 180);
+          history.position.y = -30;
+          history.material.opacity =0; 
+           scene.add(history); 
+         })
   }
   function cameraBegin(camera){
   let counter =0; 
@@ -301,19 +364,9 @@ title.classList.add("fadeAway2");
     .start();
   }
   function jumpEggs(){
-    let jump= []; 
-    jump[0] = -1; 
-    jump[1] = .8; 
-    jump[2] = .9; 
-    jump[3] = -1.4; 
-    jump[4] = -1.2; 
-    let timeF= []; 
-    timeF[0] = 700; 
-    timeF[1] = 800; 
-    timeF[2] = 700; 
-    timeF[3] = 900; 
-    timeF[4] = 800; 
-    eggs.children.forEach((egg, index)=> {
+    let jump= [-1, .8, .9,-1.4];   
+    let timeF= [700, 800, 700, 900]; 
+    eggs.forEach((egg, index)=> {
       let move = new THREE.Vector3(egg.position.x,egg.position.y + jump[index],egg.position.z )
             eggTween[index] =  new TWEEN.Tween(egg.position).to(move, timeF[index])
           .easing(TWEEN.Easing.Quadratic.InOut).repeat(Infinity).yoyo(true).start() 
@@ -322,5 +375,34 @@ title.classList.add("fadeAway2");
   function mainMapView(){
 scene.remove(clouds); 
 scene.remove(landMass); 
-
   }; 
+
+  function watchEvents(){
+    console.log(eggs.length); 
+   
+    eggs.forEach((egg, index)=> {
+        domEvents.addEventListener(egg, "click", function(event){
+          console.log(egg.position)
+          goToClicked(egg.position, index);  
+          //remove all the main eggs
+          eggs.forEach(egg=>{
+          new TWEEN.Tween(egg.material ).to( { opacity: 0 }, 2000 ).onComplete(()=>{
+            scene.remove(egg);}).onComplete(()=>{
+              subPortalObj[index].forEach(subPortal=>{
+                subPortal.position.y = 0;
+                new TWEEN.Tween(subPortal.material).to( { opacity: 1 }, 1000 ).start();
+              })    
+            }).start();
+            })
+      })
+  })
+}
+
+  function goToClicked(position, index){
+    // console.log(index); 
+    new TWEEN.Tween(camera.position).to({
+      x: position.x, y:position.y+100 , z:position.z
+    }, 1500)
+    .easing(TWEEN.Easing.Quadratic.In)
+    .onComplete(() =>{}).start(); 
+  }

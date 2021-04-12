@@ -64,10 +64,11 @@
   }
  section{
 height: 96vh; 
-/* border: 3px solid orange;  */
+border: 3px solid orange; 
 position: relative; 
 overflow: hidden; 
 padding: 5% 5%; 
+z-index:4; 
  }
  /******************************** BUTTONS ****************************/
 button{
@@ -91,20 +92,31 @@ button:hover{
    left: calc(50vw - 30px); 
    animation: crescendo .7s alternate infinite ease-in; 
  }
- .exploreBtn{
-   background: #F9ECDC; 
-   padding: 16px 20px; 
+ .navButtons{
+  background: #F9ECDC; 
+  padding: 10px 12px; 
+  position: absolute; 
+  box-shadow:-4px 4px 4px #0F6F84;
+  background: #F9ECDC; 
+  z-index: 10; 
+  top: 5vh; 
+  left: 1%; 
+ }
+ #exploreBtn{
    position: sticky;
    left: 40%;
    margin:0px auto; 
    top: 50%; 
-   box-shadow:-4px 4px 4px #0F6F84;
+   padding: 16px 20px; 
    animation: crescendo2 .7s alternate infinite ease-in; 
+ }
+ .navButtons h3{
+  color: #0F6F84; 
+  font: 16px; 
  }
  .exploreBtn h3{
    color: #0F6F84; 
    line-height: 2em;
-   /* letter-spacing:.06em;  */
    word-spacing: .1em; 
  }
   /******************************** GENERAL TYPE ****************************/
@@ -484,7 +496,20 @@ z-index: 10;
       animation-fill-mode: backwards;
       opacity: 0; 
    }
+   .popUp {
+     display: none; 
+     opacity: 0; 
+     animation: fadeIn 2s 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+   }
 
+   #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    /* z-index: ;  */
+  }
    /*******************ANIMAITON *****************/
    @keyframes fadeOut {
     0%   {opacity:1; }

@@ -3,15 +3,18 @@ let manager = new THREE.LoadingManager();
 const loader = new THREE.TextureLoader(manager);
 //CAMERA VARIABLES
 const fov = 75;
-// let camStart = {x:-150, y:2050, z:0}; 
-let camStart = {x:-150, y:200, z:0}; 
+let camStart = {x:-150, y:2050, z:0}; 
+// let camStart = {x:-150, y:200, z:0}; 
 let camMain = {x:-100, y:140, z:10}; 
 //OBJECT VARIABLES
 var clouds = [];
 var seas =[]; 
-let chapel, skyscrapper, mural, beach, playground; 
+let chapel, skyscrapper, mural, beach; 
 let subPortalObj= []; 
 let BLD1, BLD2, BLD3, Nimitz, YBL, Torp; 
+let contam, urbanDes, soilD; 
+let environStew, publicServ, facil; 
+let wetlands,adaPer, pervious, waterManag; 
 let ground, map,medBLue,litBlue, groupSea,mapGroup, eggs; 
 //INTERACTIVE
 let eggTween= []; 
@@ -22,9 +25,10 @@ let notAtzero =false;
 const canvas = document.getElementById("myCanvas");
 var loadLine = document.getElementById("loadLine"); 
 var num = document.getElementById("num");
-var labels = document.getElementById("labels");
+// var labels = document.getElementById("labels");
 var load = document.getElementById("loading"); 
 var titles = document.querySelectorAll(".title"); 
+var introPopups = document.querySelectorAll('.popUp.intro'); 
 
 // function mapWindow(input, in_min, in_max, out_min, out_max) {
 //   return (input - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
@@ -33,38 +37,38 @@ Number.prototype.map = function (in_min, in_max, out_min, out_max) {
   return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 }
 
-// manager.onLoad = function ( ) {
-//   console.log('Loading Complete!');
-//   load.classList.add('fadeAway');
-//   lowerFog =true; 
-//   let windowRatio =window.innerWidth/window.innerHeight; 
-//   console.log(windowRatio); 
-//   zRotation = windowRatio.map(.75, 4, .000020,.000001); 
-//   clouds.forEach(cloud =>{
-//     let newcloudPos;
-//     let ran = Math.random(); 
-//     if(cloud.position.x>0){
-//       newcloudPos = new THREE.Vector3( cloud.position.x+ Math.random()*canvas.clientWidth*2 +canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*( -canvas.clientHeight*2)-canvas.clientHeight*.5);
-//     }
-//     else{
-//       newcloudPos = new THREE.Vector3(cloud.position.x+Math.random()*(-canvas.clientWidth*3)-canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*canvas.clientHeight*2+canvas.clientHeight*.5); 
-//     }
-//     new TWEEN.Tween(cloud.position).to( newcloudPos, 5000 ).delay(2000) 
-//     .easing(TWEEN.Easing.Quadratic.InOut).onComplete(()=>{
-//       labels.style="display:block";  
-//       cameraBegin(camera); 
-//     }).start();
-//   })
-// };
-// manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
-// 	// console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-// };
-// manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
-// 	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
-//   loadLine.style.width = (itemsLoaded / itemsTotal * 100) + '%';
-//   let number =(itemsLoaded / itemsTotal * 100).toString(); 
-//   num.innerHTML=number; 
-// };
+manager.onLoad = function ( ) {
+  console.log('Loading Complete!');
+  load.classList.add('fadeAway');
+  lowerFog =true; 
+  let windowRatio =window.innerWidth/window.innerHeight; 
+  console.log(windowRatio); 
+  zRotation = windowRatio.map(.75, 4, .000020,.000001); 
+  clouds.forEach(cloud =>{
+    let newcloudPos;
+    let ran = Math.random(); 
+    if(cloud.position.x>0){
+      newcloudPos = new THREE.Vector3( cloud.position.x+ Math.random()*canvas.clientWidth*2 +canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*( -canvas.clientHeight*2)-canvas.clientHeight*.5);
+    }
+    else{
+      newcloudPos = new THREE.Vector3(cloud.position.x+Math.random()*(-canvas.clientWidth*3)-canvas.clientWidth*.5 , cloud.position.y,  cloud.position.z+Math.random()*canvas.clientHeight*2+canvas.clientHeight*.5); 
+    }
+    new TWEEN.Tween(cloud.position).to( newcloudPos, 5000 ).delay(2000) 
+    .easing(TWEEN.Easing.Quadratic.InOut).onComplete(()=>{
+      // labels.style="display:block";  
+      cameraBegin(camera); 
+    }).start();
+  })
+};
+manager.onStart = function ( url, itemsLoaded, itemsTotal ) {
+	// console.log( 'Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+};
+manager.onProgress = function ( url, itemsLoaded, itemsTotal ) {
+	// console.log( 'Loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.' );
+  loadLine.style.width = (itemsLoaded / itemsTotal * 100) + '%';
+  let number =(Math.round(itemsLoaded / itemsTotal * 100)).toString(); 
+  num.innerHTML=number; 
+};
 window.addEventListener("load", loadScreen);
 function loadScreen(){
     basicScene(); 
@@ -111,7 +115,7 @@ function basicScene(){
       camera.position.set(camStart.x, camStart.y, camStart.z);
       camera.rotation.x = -90 * (Math.PI / 180);
       //FIRST CAMERA STARTING ROTATION
-      // camera.rotation.z =  55 * (Math.PI / 180);
+      camera.rotation.z =  55 * (Math.PI / 180);
         //LIGHTS
         var hemLight = new THREE.HemisphereLight(0xFFFFFF, 0x0808dd, 1);
         scene.add(hemLight); 
@@ -175,8 +179,8 @@ function makeClouds(){
     scene.add(landMass);
   //WATER TEXTURES
     const mediumBLue = loader.load("../textures/waterTextured.png");
-    let waterWidth = 1000; 
-    let waterHeight = 1250; 
+    let waterWidth = 800; 
+    let waterHeight = 1000; 
           const planeGeometry1 = new THREE.PlaneGeometry(waterWidth, waterHeight);
           const planeMaterial1 = new THREE.MeshStandardMaterial({
             map: mediumBLue,
@@ -184,8 +188,8 @@ function makeClouds(){
             side: THREE.DoubleSide,
             depthWrite: false
           });
-    let rows = 8; 
-    let columns =4; 
+    let rows = 10; 
+    let columns =7; 
     groupSea = new THREE.Group();
     for(let j=0; j<columns; j++){
           for(let i=0; i<rows; i++){
@@ -196,12 +200,12 @@ function makeClouds(){
           }
         }
           scene.add(groupSea);
-          groupSea.rotation.y = -180 * (Math.PI / 180);
-          groupSea.position.z-=2000; 
-          groupSea.position.x+=2000; 
+          groupSea.rotation.y = -150 * (Math.PI / 180);
+          groupSea.position.z-=1900; 
+          groupSea.position.x+=1800; 
 
       //ADD THE BASE MAP 
-          let mapT = loader.load("../illustrations/MainBaseMap.png"); 
+          let mapT = loader.load("../illustrations/mapBaseBridge.png"); 
           var planeGeometry = new THREE.PlaneGeometry(530.82, 600);
           var planeMaterial = new THREE.MeshStandardMaterial({
           map: mapT,
@@ -367,14 +371,14 @@ title.classList.add("fadeAway2");
     let jump= [-1, .8, .9,-1.4];   
     let timeF= [700, 800, 700, 900]; 
     eggs.forEach((egg, index)=> {
-      let move = new THREE.Vector3(egg.position.x,egg.position.y + jump[index],egg.position.z )
+      let move = new THREE.Vector3(egg.position.x,egg.position.y ,egg.position.z+ jump[index] )
             eggTween[index] =  new TWEEN.Tween(egg.position).to(move, timeF[index])
           .easing(TWEEN.Easing.Quadratic.InOut).repeat(Infinity).yoyo(true).start() 
      }); 
   }
   function mainMapView(){
-scene.remove(clouds); 
-scene.remove(landMass); 
+    scene.remove(clouds); 
+    scene.remove(landMass); 
   }; 
 
   function watchEvents(){
@@ -389,8 +393,12 @@ scene.remove(landMass);
           new TWEEN.Tween(egg.material ).to( { opacity: 0 }, 2000 ).onComplete(()=>{
             scene.remove(egg);}).onComplete(()=>{
               subPortalObj[index].forEach(subPortal=>{
-                subPortal.position.y = 0;
-                new TWEEN.Tween(subPortal.material).to( { opacity: 1 }, 1000 ).start();
+                //bring those subPortal Objects in
+                subPortal.position.y = 3;
+                new TWEEN.Tween(subPortal.material).to( { opacity: 1 }, 1000 ).onComplete(()=>{
+                //bring in the intro popUp 
+                introPopups[index].style ="display: block;"
+                }).start();
               })    
             }).start();
             })

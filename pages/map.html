@@ -29,19 +29,31 @@
         </div>
         <h2>getting things ready...</h2> 
     </div>
-    <!-- <div id="labels">
-<h2>treasure island</h2>
-<h2>yerba buena island</h2>
-    </div> -->
-    <div class="popUp intro" id="hist">  
-        <button class="navButtons" onClick =""><h3>Main Map</h3></button>
-        <button class="navButtons" onClick =""><h3>History Map</h3></button>
+    <button class="navButtons" id="mainMapBtn" onclick ="goToMainMap()">
+        <img src="../icons/backArrow.svg">
+        <h3>Main Map</h3>
+    </button>
+    <div class="popUp intro" >  
+        <button class="navButtons" id="forward"onclick ="closePopUps()">
+            <h3>History Map</h3>
+            <img src="../icons/forwardArrow.svg">
+        </button>
         <section>
+            <div class="portalHeading">
              <h1>History Lives</h1>
+             <h2>Rescuing Treasure Island’s Historic Buildings from Sea Level Rise</h2>
+            </div>
         <button class="downArrow"type="button"onclick= "nextSection(introNar1)">
             <img src="../icons/down.svg"> 
         </button>  
     </section> 
+    <div class ="stickyBlock">
+        <p id="bigPara">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum laudantium animi quod eum, asperiores rem iste voluptates ipsum deleniti corrupti modi dolorum quibusdam corporis totam nostrum vero! Saepe, debitis autem!</p>
+        <div class="imgContainer"> 
+            <img src ="../media/Michael_1.jpg">
+            <p class="caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nulla, ullam aliquid repudiandae ducimus exercitationem illo? Expedita adipisci temporibus optio debitis reprehenderit dolorum, inventore placeat nihil neque qui praesentium asperiores!</p>
+        </div>
+    </div> 
     <video autoplay muted loop id="myVideo">
         <source src="../media/wave3BckgrndVid.mp4" type="video/mp4">
       </video>
@@ -77,7 +89,150 @@
             <img src="icons/down.svg"> 
         </button>   
     </div>
-
+    <div class="popUp subPortalPopUp" id="BLD1">  
+        <button class="navButtons" id="forward"onclick ="closePopUps()">
+            <h3>History Map</h3>
+            <img src="../icons/forwardArrow.svg">
+        </button>
+        <section>
+            <div class="portalHeading">
+             <h1>Building One</h1>
+            </div>
+        <button class="downArrow"type="button"onclick= "nextSection(introNar1)">
+            <img src="../icons/down.svg"> 
+        </button>  
+    </section> 
+    <video autoplay muted loop id="myVideo">
+        <source src="../media/wave3BckgrndVid.mp4" type="video/mp4">
+      </video>
+    <div class ="stickyBlock">
+        <p id="bigPara">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum laudantium animi quod eum, asperiores rem iste voluptates ipsum deleniti corrupti modi dolorum quibusdam corporis totam nostrum vero! Saepe, debitis autem!</p>
+        <div class="imgContainer"> 
+            <img src ="../media/Michael_1.jpg">
+            <p class="caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nulla, ullam aliquid repudiandae ducimus exercitationem illo? Expedita adipisci temporibus optio debitis reprehenderit dolorum, inventore placeat nihil neque qui praesentium asperiores!</p>
+        </div>
+    </div> 
+    </div>
+    <div class="popUp subPortalPopUp" id="BLD2">  
+        <button class="navButtons" id="forward"onclick ="closePopUps()">
+            <h3>History Map</h3>
+            <img src="../icons/forwardArrow.svg">
+        </button>
+        <section>
+            <div class="portalHeading">
+             <h1>Building Two</h1>
+            </div>
+        <button class="downArrow"type="button"onclick= "nextSection(introNar1)">
+            <img src="../icons/down.svg"> 
+        </button>  
+    </section> 
+    <video autoplay muted loop id="myVideo">
+        <source src="../media/wave3BckgrndVid.mp4" type="video/mp4">
+      </video>
+    <div class ="stickyBlock">
+        <p id="bigPara">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum laudantium animi quod eum, asperiores rem iste voluptates ipsum deleniti corrupti modi dolorum quibusdam corporis totam nostrum vero! Saepe, debitis autem!</p>
+        <div class="imgContainer"> 
+            <img src ="../media/Michael_1.jpg">
+            <p class="caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nulla, ullam aliquid repudiandae ducimus exercitationem illo? Expedita adipisci temporibus optio debitis reprehenderit dolorum, inventore placeat nihil neque qui praesentium asperiores!</p>
+        </div>
+    </div> 
+    </div>
+    <div class="popUp subPortalPopUp" id="BLD3">  
+        <button class="navButtons" id="forward"onclick ="closePopUps()">
+            <h3>History Map</h3>
+            <img src="../icons/forwardArrow.svg">
+        </button>
+        <section>
+            <div class="portalHeading">
+             <h1>Building Two</h1>
+            </div>
+        <button class="downArrow"type="button"onclick= "nextSection(introNar1)">
+            <img src="../icons/down.svg"> 
+        </button>  
+    </section> 
+    <video autoplay muted loop id="myVideo">
+        <source src="../media/wave3BckgrndVid.mp4" type="video/mp4">
+      </video>
+    <div class ="stickyBlock">
+        <p id="bigPara">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum laudantium animi quod eum, asperiores rem iste voluptates ipsum deleniti corrupti modi dolorum quibusdam corporis totam nostrum vero! Saepe, debitis autem!</p>
+        <div class="imgContainer"> 
+            <img src ="../media/Michael_1.jpg">
+            <p class="caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nulla, ullam aliquid repudiandae ducimus exercitationem illo? Expedita adipisci temporibus optio debitis reprehenderit dolorum, inventore placeat nihil neque qui praesentium asperiores!</p>
+        </div>
+    </div> 
+    </div>
+    <div class="popUp subPortalPopUp" id="nimitz">  
+        <button class="navButtons" id="forward"onclick ="closePopUps()">
+            <h3>History Map</h3>
+            <img src="../icons/forwardArrow.svg">
+        </button>
+        <section>
+            <div class="portalHeading">
+             <h1>Nimitz House</h1>
+            </div>
+        <button class="downArrow"type="button"onclick= "nextSection(introNar1)">
+            <img src="../icons/down.svg"> 
+        </button>  
+    </section> 
+    <video autoplay muted loop id="myVideo">
+        <source src="../media/wave3BckgrndVid.mp4" type="video/mp4">
+      </video>
+    <div class ="stickyBlock">
+        <p id="bigPara">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum laudantium animi quod eum, asperiores rem iste voluptates ipsum deleniti corrupti modi dolorum quibusdam corporis totam nostrum vero! Saepe, debitis autem!</p>
+        <div class="imgContainer"> 
+            <img src ="../media/Michael_1.jpg">
+            <p class="caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nulla, ullam aliquid repudiandae ducimus exercitationem illo? Expedita adipisci temporibus optio debitis reprehenderit dolorum, inventore placeat nihil neque qui praesentium asperiores!</p>
+        </div>
+    </div> 
+    </div>
+    <div class="popUp subPortalPopUp" id="torp">  
+        <button class="navButtons" id="forward"onclick ="closePopUps()">
+            <h3>History Map</h3>
+            <img src="../icons/forwardArrow.svg">
+        </button>
+        <section>
+            <div class="portalHeading">
+             <h1>Torpedo House</h1>
+            </div>
+        <button class="downArrow"type="button"onclick= "nextSection(introNar1)">
+            <img src="../icons/down.svg"> 
+        </button>  
+    </section> 
+    <video autoplay muted loop id="myVideo">
+        <source src="../media/wave3BckgrndVid.mp4" type="video/mp4">
+      </video>
+    <div class ="stickyBlock">
+        <p id="bigPara">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum laudantium animi quod eum, asperiores rem iste voluptates ipsum deleniti corrupti modi dolorum quibusdam corporis totam nostrum vero! Saepe, debitis autem!</p>
+        <div class="imgContainer"> 
+            <img src ="../media/Michael_1.jpg">
+            <p class="caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nulla, ullam aliquid repudiandae ducimus exercitationem illo? Expedita adipisci temporibus optio debitis reprehenderit dolorum, inventore placeat nihil neque qui praesentium asperiores!</p>
+        </div>
+    </div> 
+    </div>
+    <div class="popUp subPortalPopUp" id="YBL">  
+        <button class="navButtons" id="forward"onclick ="closePopUps()">
+            <h3>History Map</h3>
+            <img src="../icons/forwardArrow.svg">
+        </button>
+        <section>
+            <div class="portalHeading">
+             <h1>Yerba Buena LightHouse</h1>
+            </div>
+        <button class="downArrow"type="button"onclick= "nextSection(introNar1)">
+            <img src="../icons/down.svg"> 
+        </button>  
+    </section> 
+    <video autoplay muted loop id="myVideo">
+        <source src="../media/wave3BckgrndVid.mp4" type="video/mp4">
+      </video>
+    <div class ="stickyBlock">
+        <p id="bigPara">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum laudantium animi quod eum, asperiores rem iste voluptates ipsum deleniti corrupti modi dolorum quibusdam corporis totam nostrum vero! Saepe, debitis autem!</p>
+        <div class="imgContainer"> 
+            <img src ="../media/Michael_1.jpg">
+            <p class="caption">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae nulla, ullam aliquid repudiandae ducimus exercitationem illo? Expedita adipisci temporibus optio debitis reprehenderit dolorum, inventore placeat nihil neque qui praesentium asperiores!</p>
+        </div>
+    </div> 
+    </div>
 
 </body>
 <script src="../js/build/three.js"></script>

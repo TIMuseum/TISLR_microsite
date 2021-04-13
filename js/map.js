@@ -21,15 +21,17 @@ let eggTween= [];
 let lowerFog = false; 
 let zRotation; 
 let notAtzero =false;
+let zoomPositions =[]; 
 //DOM ELEMENTS
 const canvas = document.getElementById("myCanvas");
 var loadLine = document.getElementById("loadLine"); 
 var num = document.getElementById("num");
-// var labels = document.getElementById("labels");
 var load = document.getElementById("loading"); 
 var titles = document.querySelectorAll(".title"); 
 var introPopups = document.querySelectorAll('.popUp.intro'); 
-
+var allPopUps = document.querySelectorAll('.popUp'); 
+var mainMapBtn = document.getElementById("mainMapBtn");
+var subPortalPopUps = document.querySelectorAll('.subPortalPopUp'); 
 // function mapWindow(input, in_min, in_max, out_min, out_max) {
 //   return (input - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 // }
@@ -55,7 +57,6 @@ manager.onLoad = function ( ) {
     }
     new TWEEN.Tween(cloud.position).to( newcloudPos, 5000 ).delay(2000) 
     .easing(TWEEN.Easing.Quadratic.InOut).onComplete(()=>{
-      // labels.style="display:block";  
       cameraBegin(camera); 
     }).start();
   })
@@ -267,6 +268,11 @@ function makeClouds(){
           }); 
           scene.add(map);
           camera.rotation.x = -90 * (Math.PI / 180);
+          // set the position to zoom for each main egg
+          zoomPositions[0] ={x:-20,y:100,z:40}; 
+          zoomPositions[1] ={x:-138,y:100,z:40}; 
+          zoomPositions[2] ={x:-138,y:100,z:40}; 
+          zoomPositions[3] ={x:-138,y:100,z:40};
           history()
           watchEvents(); 
   }
@@ -281,6 +287,7 @@ function makeClouds(){
         });
       BLD1 = new THREE.Mesh(b1Geo, b1Plane);
       BLD1.position.set(-90,0, 53); 
+      BLD1.name="BLD1"; 
       //BLD2
       let BLD2T = loader.load("../illustrations/BD2.png")
       var b2Geo = new THREE.PlaneGeometry(38.4, 21.6);
@@ -291,6 +298,7 @@ function makeClouds(){
         });
       BLD2 = new THREE.Mesh(b2Geo, b2Plane);
       BLD2.position.set(-90,0, 15); 
+      BLD2.name="BLD2"; 
       //BLD3
       let BLD3T = loader.load("../illustrations/BLD3.PNG")
       var b3Geo = new THREE.PlaneGeometry(34.56, 25.119);
@@ -301,6 +309,7 @@ function makeClouds(){
         });
       BLD3 = new THREE.Mesh(b3Geo, b3Plane);
       BLD3.position.set(-90,0, -10); 
+      BLD3.name="BLD3"; 
        //nimitz
        let NimitzT = loader.load("../illustrations/Nimitz.PNG")
        var NimitzGeo = new THREE.PlaneGeometry(38.4, 21.6);
@@ -311,6 +320,7 @@ function makeClouds(){
          });
          Nimitz = new THREE.Mesh(NimitzGeo, NimitzPlane);
          Nimitz.position.set(-11,0, 30); 
+         Nimitz.name="nimitz"; 
           //torp
        let torpT = loader.load("../illustrations/Torpedo.png")
        var torpGeo = new THREE.PlaneGeometry(30.72, 17.28);
@@ -322,6 +332,7 @@ function makeClouds(){
          Torp = new THREE.Mesh(torpGeo, torpPlane);
          Torp.position.set(-10,0, -6); 
          Torp.rotation.z =  9 * (Math.PI / 180);
+         Torp.name="torp"; 
               //YBL
        let yblT = loader.load("../illustrations/YBLH.png")
        var yblGeo = new THREE.PlaneGeometry(33.92, 43.2);
@@ -332,7 +343,7 @@ function makeClouds(){
          });
          YBL = new THREE.Mesh(yblGeo, yblPlane);
          YBL.position.set(40,0, 13); 
-
+         YBL.name="YBL"; 
          subPortalObj[0] = [BLD1,BLD2,BLD3,Nimitz,Torp,YBL]
          console.log( subPortalObj[1]); 
          subPortalObj[0].forEach(history=>{
@@ -362,17 +373,17 @@ title.classList.add("fadeAway2");
       if(camera.rotation.z >0){
        notAtzero =true; 
       }
-     jumpEggs();  
+     jump(eggs);  
      mainMapView(); 
     })
     .start();
   }
-  function jumpEggs(){
-    let jump= [-1, .8, .9,-1.4];   
-    let timeF= [700, 800, 700, 900]; 
-    eggs.forEach((egg, index)=> {
-      let move = new THREE.Vector3(egg.position.x,egg.position.y ,egg.position.z+ jump[index] )
-            eggTween[index] =  new TWEEN.Tween(egg.position).to(move, timeF[index])
+  function jump(objects){
+    let jump= [-1, .8, .9,-1.4,1, -.8 ];   
+    let timeF= [900, 800, 700, 900, 700, 800]; 
+    objects.forEach((object, index)=> {
+      let move = new THREE.Vector3(object.position.x,object.position.y ,object.position.z+ jump[index] )
+     new TWEEN.Tween(object.position).to(move, timeF[index])
           .easing(TWEEN.Easing.Quadratic.InOut).repeat(Infinity).yoyo(true).start() 
      }); 
   }
@@ -383,17 +394,22 @@ title.classList.add("fadeAway2");
 
   function watchEvents(){
     console.log(eggs.length); 
-   
+    //MAIN PORTALS
     eggs.forEach((egg, index)=> {
         domEvents.addEventListener(egg, "click", function(event){
-          console.log(egg.position)
-          goToClicked(egg.position, index);  
+          goToClicked(zoomPositions[index], index);  
           //remove all the main eggs
           eggs.forEach(egg=>{
           new TWEEN.Tween(egg.material ).to( { opacity: 0 }, 2000 ).onComplete(()=>{
             scene.remove(egg);}).onComplete(()=>{
+              jump(subPortalObj[index]); 
+              mainMapBtn.style="display:flex"; 
               subPortalObj[index].forEach(subPortal=>{
                 //bring those subPortal Objects in
+                //add clickEvents for subPortals
+                domEvents.addEventListener(subPortal, "click", function(event){
+                  clickSubPortal(subPortal, index);  
+                }); 
                 subPortal.position.y = 3;
                 new TWEEN.Tween(subPortal.material).to( { opacity: 1 }, 1000 ).onComplete(()=>{
                 //bring in the intro popUp 
@@ -405,12 +421,48 @@ title.classList.add("fadeAway2");
       })
   })
 }
-
+function closePopUps(){
+  allPopUps.forEach(popUp=>{
+    popUp.style="display:none"
+    // mainMapBtn.style="display:flex"; 
+  })
+}
+function goToMainPortal(){
+  
+}
+function goToMainMap(){
+  closePopUps(); 
+  mainMapBtn.style="display:none"; 
+  //bring back the easter eggs 
+  eggs.forEach(egg=>{
+    new TWEEN.Tween(egg.material ).to( { opacity: 1 }, 2000 ).start(); 
+})
+subPortalObj.forEach(subPortal=>{
+  subPortal.forEach(subSubPortal=>{
+    new TWEEN.Tween(subSubPortal.material).to( { opacity: 0 }, 2000 ).start(); 
+  })
+})
+let coords = new THREE.Vector3(camMain.x, camMain.y, camMain.z);
+var tween = new TWEEN.Tween(camera.position)
+.to(coords, 2000).delay(500) 
+.easing(TWEEN.Easing.Quadratic.InOut).start(); 
+}
   function goToClicked(position, index){
-    // console.log(index); 
-    new TWEEN.Tween(camera.position).to({
-      x: position.x, y:position.y+100 , z:position.z
-    }, 1500)
-    .easing(TWEEN.Easing.Quadratic.In)
+       // jump(subPortal);  
+    new TWEEN.Tween(camera.position).to(
+      position, 1500).easing(TWEEN.Easing.Quadratic.In)
     .onComplete(() =>{}).start(); 
   }
+
+  function clickSubPortal(subPortal, index){
+    let position ={x:subPortal.position.x, y:subPortal.position.y+30, z:subPortal.position.z}
+    goToClicked(position, index)
+    console.log(subPortal.name); 
+    subPortalPopUps.forEach(popUp=>{
+    if(popUp.id == subPortal.name){
+      popUp.style="display:block"; 
+    }; 
+    })
+  }
+
+

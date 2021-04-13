@@ -67,7 +67,7 @@ height: 96vh;
 border: 3px solid orange; 
 position: relative; 
 overflow: hidden; 
-padding: 5% 5%; 
+padding: 5% 10%; 
 z-index:4; 
  }
  /******************************** BUTTONS ****************************/
@@ -94,13 +94,26 @@ button:hover{
  }
  .navButtons{
   background: #F9ECDC; 
+  display: flex; 
   padding: 10px 12px; 
   position: absolute; 
   box-shadow:-4px 4px 4px #0F6F84;
   background: #F9ECDC; 
   z-index: 10; 
-  top: 5vh; 
-  left: 1%; 
+  /* bottom: 4%;  */
+  top: 7vh; 
+ }
+ #mainMapBtn{
+  left: 3vw; 
+ }
+ #forward{
+right: 3vw; 
+ }
+ #forward h3{
+   padding-right: 10px; 
+ }
+ #mainMapBtn h3{
+   padding-left: 10px; 
  }
  #exploreBtn{
    position: sticky;
@@ -110,12 +123,13 @@ button:hover{
    padding: 16px 20px; 
    animation: crescendo2 .7s alternate infinite ease-in; 
  }
- .navButtons h3{
+ .navButtons h3, .exploreBtn h3{
   color: #0F6F84; 
-  font: 16px; 
+ }
+ .navButtons h3{
+  font-size: 14px; 
  }
  .exploreBtn h3{
-   color: #0F6F84; 
    line-height: 2em;
    word-spacing: .1em; 
  }
@@ -377,6 +391,7 @@ right: 0%;
   margin-bottom:40%; 
   margin-top: 35%; 
   margin-bottom:40%; 
+  z-index:8; 
 }
 .doublePara{
   display: flex; 
@@ -496,20 +511,32 @@ z-index: 10;
       animation-fill-mode: backwards;
       opacity: 0; 
    }
-   .popUp {
+   .popUp, #mainMapBtn {
      display: none; 
      opacity: 0; 
-     animation: fadeIn 2s 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+     animation: fadeIn 3s 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
    }
-
+   .popUp h1,  .popUp h2 {
+   color: #0F6F84; 
+   background-color: #F9ECDC;
+   padding: 12px 14px; 
+   }
+   .popUp h1{
+    font-size: 80px; 
+    margin-bottom: 50px; 
+   }
+   .portalHeading{
+  position: absolute; 
+  bottom: 40%; 
+   }
    #myVideo {
-    position: fixed;
+    position: sticky;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
-    /* z-index: ;  */
   }
+
    /*******************ANIMAITON *****************/
    @keyframes fadeOut {
     0%   {opacity:1; }

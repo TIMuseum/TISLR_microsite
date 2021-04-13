@@ -22,6 +22,7 @@ let lowerFog = false;
 let zRotation; 
 let notAtzero =false;
 let zoomPositions =[]; 
+let currentPortal; 
 //DOM ELEMENTS
 const canvas = document.getElementById("myCanvas");
 var loadLine = document.getElementById("loadLine"); 
@@ -399,6 +400,7 @@ title.classList.add("fadeAway2");
         domEvents.addEventListener(egg, "click", function(event){
           goToClicked(zoomPositions[index], index);  
           //remove all the main eggs
+          currentPortal = index; 
           eggs.forEach(egg=>{
           new TWEEN.Tween(egg.material ).to( { opacity: 0 }, 2000 ).onComplete(()=>{
             scene.remove(egg);}).onComplete(()=>{
@@ -428,7 +430,10 @@ function closePopUps(){
   })
 }
 function goToMainPortal(){
-  
+  closePopUps()
+  zoomPositions[currentPortal]
+  let coords = new THREE.Vector3(zoomPositions[currentPortal].x, zoomPositions[currentPortal].y, zoomPositions[currentPortal].z);
+ new TWEEN.Tween(camera.position).to(coords, 2000).easing(TWEEN.Easing.Quadratic.InOut).start(); 
 }
 function goToMainMap(){
   closePopUps(); 

@@ -100,13 +100,13 @@ button:hover{
   background: #F9ECDC; 
   z-index: 10; 
   /* bottom: 4%;  */
-  top: 7vh; 
+  top: 60px; 
  }
  #mainMapBtn{
-  left: 3vw; 
+  left: 20px; 
  }
  #forward{
-right: 3vw; 
+right: 20px; 
  }
  #forward h3{
    padding-right: 10px; 

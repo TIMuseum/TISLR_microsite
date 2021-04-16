@@ -33,6 +33,10 @@ var introPopups = document.querySelectorAll('.popUp.intro');
 var allPopUps = document.querySelectorAll('.popUp'); 
 var mainMapBtn = document.getElementById("mainMapBtn");
 var subPortalPopUps = document.querySelectorAll('.subPortalPopUp'); 
+var mainMapLables = document.querySelectorAll('.mainLabel'); 
+var mainMapLables2 = document.querySelectorAll('.mainPortal'); 
+let portalLabels =[]; 
+portalLabels[0]= document.querySelectorAll('.histPortal'); 
 // function mapWindow(input, in_min, in_max, out_min, out_max) {
 //   return (input - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 // }
@@ -181,8 +185,8 @@ function makeClouds(){
     scene.add(landMass);
   //WATER TEXTURES
     const mediumBLue = loader.load("../textures/waterTextured.png");
-    let waterWidth = 800; 
-    let waterHeight = 1000; 
+    let waterWidth = 640; 
+    let waterHeight = 800; 
           const planeGeometry1 = new THREE.PlaneGeometry(waterWidth, waterHeight);
           const planeMaterial1 = new THREE.MeshStandardMaterial({
             map: mediumBLue,
@@ -202,8 +206,8 @@ function makeClouds(){
           }
         }
           scene.add(groupSea);
-          groupSea.rotation.y = -150 * (Math.PI / 180);
-          groupSea.position.z-=1900; 
+          groupSea.rotation.y = -160 * (Math.PI / 180);
+          groupSea.position.z-=1800; 
           groupSea.position.x+=1800; 
 
       //ADD THE BASE MAP 
@@ -270,7 +274,7 @@ function makeClouds(){
           scene.add(map);
           camera.rotation.x = -90 * (Math.PI / 180);
           // set the position to zoom for each main egg
-          zoomPositions[0] ={x:-20,y:100,z:40}; 
+          zoomPositions[0] ={x:-20,y:100,z:20}; 
           zoomPositions[1] ={x:-138,y:100,z:40}; 
           zoomPositions[2] ={x:-138,y:100,z:40}; 
           zoomPositions[3] ={x:-138,y:100,z:40};
@@ -374,6 +378,12 @@ title.classList.add("fadeAway2");
       if(camera.rotation.z >0){
        notAtzero =true; 
       }
+      mainMapLables.forEach(label=>{
+        label.style="display:block"; 
+      })
+      mainMapLables2.forEach(label=>{
+        label.style="display:block"; 
+      })
      jump(eggs);  
      mainMapView(); 
     })
@@ -401,11 +411,25 @@ title.classList.add("fadeAway2");
           goToClicked(zoomPositions[index], index);  
           //remove all the main eggs
           currentPortal = index; 
+          //get rid of the labels from the main map
+          mainMapLables.forEach(label=>{
+            label.style="display:none"; 
+            // label.classList.add('fadeAway');
+          })
+          mainMapLables2.forEach(label=>{
+            label.style="display:none"; 
+            // label.classList.add('fadeAway');
+          })
           eggs.forEach(egg=>{
           new TWEEN.Tween(egg.material ).to( { opacity: 0 }, 2000 ).onComplete(()=>{
             scene.remove(egg);}).onComplete(()=>{
               jump(subPortalObj[index]); 
               mainMapBtn.style="display:flex"; 
+              portalLabels[index].forEach(label=>{
+                label.style="display: block";
+                console.log(label); 
+              })
+              //add subPortal events
               subPortalObj[index].forEach(subPortal=>{
                 //bring those subPortal Objects in
                 //add clickEvents for subPortals
@@ -425,7 +449,8 @@ title.classList.add("fadeAway2");
 }
 function closePopUps(){
   allPopUps.forEach(popUp=>{
-    popUp.style="display:none"
+    // popUp.classList.add('fadeAway');
+    popUp.style ="display:none"
     // mainMapBtn.style="display:flex"; 
   })
 }
@@ -433,18 +458,33 @@ function goToMainPortal(){
   closePopUps()
   zoomPositions[currentPortal]
   let coords = new THREE.Vector3(zoomPositions[currentPortal].x, zoomPositions[currentPortal].y, zoomPositions[currentPortal].z);
- new TWEEN.Tween(camera.position).to(coords, 2000).easing(TWEEN.Easing.Quadratic.InOut).start(); 
+  portalLabels[currentPortal].forEach(label=>{
+    label.style="display: block";
+  })
+ new TWEEN.Tween(camera.position).to(coords, 2000).easing(TWEEN.Easing.Quadratic.InOut).onComplete(()=>{
+
+ }).start(); 
 }
 function goToMainMap(){
   closePopUps(); 
-  mainMapBtn.style="display:none"; 
+  mainMapBtn.classList.add('fadeAway');
+  portalLabels[currentPortal].forEach(label=>{
+    label.style="display: none";
+  })
   //bring back the easter eggs 
   eggs.forEach(egg=>{
     new TWEEN.Tween(egg.material ).to( { opacity: 1 }, 2000 ).start(); 
 })
 subPortalObj.forEach(subPortal=>{
   subPortal.forEach(subSubPortal=>{
-    new TWEEN.Tween(subSubPortal.material).to( { opacity: 0 }, 2000 ).start(); 
+    new TWEEN.Tween(subSubPortal.material).to( { opacity: 0 }, 2000 ).onComplete(()=>{
+      mainMapLables.forEach(label=>{
+        label.style="display:block"; 
+      })
+      mainMapLables2.forEach(label=>{
+        label.style="display:block"; 
+      })
+    }).start(); 
   })
 })
 let coords = new THREE.Vector3(camMain.x, camMain.y, camMain.z);
@@ -467,7 +507,12 @@ var tween = new TWEEN.Tween(camera.position)
     if(popUp.id == subPortal.name){
       popUp.style="display:block"; 
     }; 
+    portalLabels[currentPortal].forEach(label=>{
+      label.style="display: none";
     })
+    })
+    //bring in Labels
+
   }
 
 

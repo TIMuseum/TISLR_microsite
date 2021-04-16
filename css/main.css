@@ -64,7 +64,6 @@
   }
  section{
 height: 96vh; 
-border: 3px solid orange; 
 position: relative; 
 overflow: hidden; 
 padding: 5% 10%; 
@@ -96,7 +95,7 @@ button:hover{
   background: #F9ECDC; 
   display: flex; 
   padding: 10px 12px; 
-  position: absolute; 
+  position:fixed; 
   box-shadow:-4px 4px 4px #0F6F84;
   background: #F9ECDC; 
   z-index: 10; 
@@ -490,6 +489,7 @@ z-index: 10;
     flex-direction: column; 
     text-align: center;
   }
+
    #loadContainer{
      width: 300px; 
    }
@@ -507,19 +507,27 @@ z-index: 10;
      font-size: 20px; 
    }
    .fadeAway{
-      animation: fadeOut 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
-      animation-fill-mode: backwards;
+      animation: fadeOut 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) backwards;
+      /* animation-fill-mode: backwards; */
       opacity: 0; 
    }
    .popUp, #mainMapBtn {
      display: none; 
      opacity: 0; 
-     animation: fadeIn 3s 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+     animation: fadeIn 3s 3.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
    }
-   .popUp h1,  .popUp h2 {
+   #mainMapBtn{
+    animation: fadeIn 3s 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+   }
+   .subPortalPopUp{
+    animation: fadeIn 3s 3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+   }
+   .popUp h1,  .popUp h2, .label h3 {
    color: #0F6F84; 
    background-color: #F9ECDC;
-   padding: 12px 14px; 
+   }
+   .popUp h1,  .popUp h2{
+    padding: 10px 16px; 
    }
    .popUp h1{
     font-size: 80px; 
@@ -530,13 +538,77 @@ z-index: 10;
   bottom: 40%; 
    }
    #myVideo {
-    position: sticky;
+    position: fixed;
     right: 0;
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
   }
-
+  /********************LABLES************************/
+  .label{
+    display: none;
+    opacity: 0; 
+    animation: fadeIn 3s 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    position: absolute; 
+    /* animation-fill-mode: backwards; */
+   box-shadow:-4px 4px 4px #0F6F84;
+    }
+    .label h3{
+      font-size: 14px; 
+      padding: 4px 6px; 
+    }
+    #histLabel{
+      bottom: 25%;
+      right: 50%;
+    }
+    #geoLabel{
+      bottom: 43%;
+      right: 42%;
+    }
+    #adaLabel{
+      bottom: 21%;
+     left: 20%;
+    }
+    #comLabel{
+      top: 34%;
+      left: 37%;
+    }
+    #BL1Label{
+      bottom: 33%;
+      left: 15%;
+    }
+    #BL2Label{
+      bottom: 53%;
+      left: 15%;
+    }
+    #BL3Label{
+      bottom: 72%;
+      left: 15%;
+    }
+    #nimitzLabel{
+      top: 52%;
+      right: 45%;
+    }
+    #torpLabel{
+      top: 28%;
+      right: 45%;
+    }
+    #YBLLabel{
+      top: 45%;
+      right: 25%;
+    }
+    .mainLabel, .histlabel, .geoLabel, .adaLabel, .comLabel{
+      bottom: 3vh; 
+      left: 3vw; 
+    }
+    .mainLabel h3,.histlabel h3, .geoLabel h3, .adaLabel h3, .comLabel h3{
+      font-size:32px; 
+      padding: 16px 26px; 
+      word-spacing: .1em; 
+    }
+ 
+ 
+ 
    /*******************ANIMAITON *****************/
    @keyframes fadeOut {
     0%   {opacity:1; }

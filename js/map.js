@@ -14,8 +14,8 @@ let subPortalObj= [];
 let BLD1, BLD2, BLD3, Nimitz, YBL, Torp; 
 let contam, urbanDes, soilD; 
 let environStew, publicServ, facil; 
-let wetlands,adaPer, pervious, waterManag; 
-let ground, map,medBLue,litBlue, groupSea,mapGroup, eggs; 
+let wetland,adaPer, greenSp, rainWM; 
+let ground, map,medBLue,litBlue, groupSea,mapGroup, eggs, contamPad, elevPad, geoExtra; 
 //INTERACTIVE
 let eggTween= []; 
 let lowerFog = false; 
@@ -33,10 +33,13 @@ var introPopups = document.querySelectorAll('.popUp.intro');
 var allPopUps = document.querySelectorAll('.popUp'); 
 var mainMapBtn = document.getElementById("mainMapBtn");
 var subPortalPopUps = document.querySelectorAll('.subPortalPopUp'); 
-var mainMapLables = document.querySelectorAll('.mainLabel'); 
+var mainMapLable = document.querySelector('.mainLabel'); 
 var mainMapLables2 = document.querySelectorAll('.mainPortal'); 
 let portalLabels =[]; 
 portalLabels[0]= document.querySelectorAll('.histPortal'); 
+portalLabels[1]= document.querySelectorAll('.geoPortal'); 
+portalLabels[2]= document.querySelectorAll('.comPortal'); 
+portalLabels[3]= document.querySelectorAll('.adaPortal'); 
 // function mapWindow(input, in_min, in_max, out_min, out_max) {
 //   return (input - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 // }
@@ -50,7 +53,7 @@ manager.onLoad = function ( ) {
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
   console.log(windowRatio); 
-  zRotation = windowRatio.map(.75, 4, .000020,.000001); 
+  zRotation = windowRatio.map(.75, 3, .000025,.000005); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 
@@ -87,11 +90,11 @@ window.addEventListener( 'resize', onWindowResize );
 
 function animate(time) {
 if(lowerFog ==true && scene.fog.density>0){
-  scene.fog.density-=(.000005); 
+  scene.fog.density-=(.000003); 
 }
 if(notAtzero ==true && camera.rotation.z>0){
   // console.log("not there yet")
-  camera.rotation.z -=.0008; 
+  camera.rotation.z -=.008; 
 };
 groupSea.position.x+=.04; 
   requestAnimationFrame(animate);
@@ -265,7 +268,7 @@ function makeClouds(){
           mural = new THREE.Mesh(mGeo, mPlane);
           mural.position.set(-150,0, -30); 
       //EGGS GROUP
-          eggs= [chapel, skyscrapper, beach, mural];
+          eggs= [chapel, skyscrapper, mural, beach];
           eggs.forEach(egg=>{
             egg.rotation.x = -90 * (Math.PI / 180);
             egg.position.y = 3;
@@ -279,6 +282,9 @@ function makeClouds(){
           zoomPositions[2] ={x:-138,y:100,z:40}; 
           zoomPositions[3] ={x:-138,y:100,z:40};
           history()
+          geology()
+          community()
+          adaptive()
           watchEvents(); 
   }
   function history(){
@@ -350,14 +356,183 @@ function makeClouds(){
          YBL.position.set(40,0, 13); 
          YBL.name="YBL"; 
          subPortalObj[0] = [BLD1,BLD2,BLD3,Nimitz,Torp,YBL]
-         console.log( subPortalObj[1]); 
+         console.log( subPortalObj[0]); 
          subPortalObj[0].forEach(history=>{
           history.rotation.x = -90 * (Math.PI / 180);
-          history.position.y = -30;
+          history.position.y = -90;
           history.material.opacity =0; 
            scene.add(history); 
          })
   }
+  function geology(){
+    //soilD
+    let soilDT = loader.load("../illustrations/crane.png")
+    var soilDGeo = new THREE.PlaneGeometry(38.4, 21.6);
+    var soilDPlane = new THREE.MeshStandardMaterial({
+      map: soilDT,
+      transparent: true,
+      depthWrite: false
+      });
+      soilD = new THREE.Mesh(soilDGeo, soilDPlane);
+      soilD.position.set(-90,0, 15); 
+      soilD.name="soilD"; 
+  //contam
+        let contamT = loader.load("../illustrations/cleaning.png")
+        var contamGeo = new THREE.PlaneGeometry(40, 22.5);
+        var contamPlane = new THREE.MeshStandardMaterial({
+          map: contamT,
+          transparent: true,
+          depthWrite: false
+          });
+          contam = new THREE.Mesh(contamGeo, contamPlane);
+          contam.position.set(-90,0, 53); 
+          contam.name="contam"; 
+    //urbanDes
+    let urbanDesT = loader.load("../illustrations/urbanDes.png")
+    var urbanDesGeo = new THREE.PlaneGeometry(40, 30);
+    var urbanDesPlane = new THREE.MeshStandardMaterial({
+      map: urbanDesT,
+      transparent: true,
+      depthWrite: false
+      });
+      urbanDes = new THREE.Mesh(urbanDesGeo, urbanDesPlane);
+      urbanDes.position.set(-90,-300, -10); 
+      urbanDes.name="urbanDes"; 
+      //contam elevated
+      let contamPadT = loader.load("../illustrations/contamin.png")
+      var contamPadGeo = new THREE.PlaneGeometry(40, 30);
+      var contamPadPlane = new THREE.MeshStandardMaterial({
+        map: contamPadT,
+        transparent: true,
+        depthWrite: false
+        });
+        contamPad = new THREE.Mesh(contamPadGeo, contamPadPlane);
+        contamPad.position.set(-90,-300, -10); 
+      //contam elevated
+       let elevPadT = loader.load("../illustrations/elevated.png")
+       var elevPadGeo = new THREE.PlaneGeometry(40, 30);
+       var elevPadPlane = new THREE.MeshStandardMaterial({
+       map: elevPadT,
+       transparent: true,
+       depthWrite: false
+         });
+         elevPad = new THREE.Mesh(elevPadGeo, elevPadPlane);
+         elevPad.position.set(-90,0, -10); 
+         geoExtra= [contamPad, elevPad]; 
+
+         geoExtra.forEach(geo=>{
+          geo.rotation.x = -90 * (Math.PI / 180);
+          geo.material.opacity =0; 
+          scene.add(geo); 
+         })
+
+       subPortalObj[1] = [soilD,contam,urbanDes]
+       subPortalObj[1].forEach(geo=>{
+        geo.rotation.x = -90 * (Math.PI / 180);
+        geo.position.y = -90;
+        geo.material.opacity =0; 
+         scene.add(geo); 
+       })
+}
+function community(){
+  //environStew
+  let environStewT = loader.load("../illustrations/environ.png")
+  var environStewGeo = new THREE.PlaneGeometry(38.4, 21.6);
+  var environStewPlane = new THREE.MeshStandardMaterial({
+    map: environStewT,
+    transparent: true,
+    depthWrite: false
+    });
+    environStew = new THREE.Mesh(environStewGeo, environStewPlane);
+    environStew.position.set(-150,0, 15); 
+    environStew.name="environStew"; 
+//publicServ
+      let publicServT = loader.load("../illustrations/foodDisrtib.png")
+      var publicServGeo = new THREE.PlaneGeometry(40, 22.5);
+      var publicServPlane = new THREE.MeshStandardMaterial({
+        map: publicServT,
+        transparent: true,
+        depthWrite: false
+        });
+        publicServ = new THREE.Mesh(publicServGeo, publicServPlane);
+        publicServ.position.set(-180,0, 53); 
+        publicServ.name="publicServ"; 
+  //facil
+  let facilT = loader.load("../illustrations/teaching.png")
+  var facilGeo = new THREE.PlaneGeometry(34.56, 25.119);
+  var facilPlane = new THREE.MeshStandardMaterial({
+    map: facilT,
+    transparent: true,
+    depthWrite: false
+    });
+    facil = new THREE.Mesh(facilGeo, facilPlane);
+    facil.position.set(-90,0, -10); 
+    facil.name="facil"; 
+  
+     subPortalObj[2] = [environStew,publicServ,facil]
+     console.log( subPortalObj[2]); 
+     subPortalObj[2].forEach(com=>{
+      com.rotation.x = -90 * (Math.PI / 180);
+      com.position.y = -90;
+      com.material.opacity =0; 
+       scene.add(com); 
+     })
+}
+function adaptive(){
+  //greenSp
+  let greenSpT = loader.load("../illustrations/green.png")
+  var greenSpGeo = new THREE.PlaneGeometry(38.4, 21.6);
+  var greenSpPlane = new THREE.MeshStandardMaterial({
+    map: greenSpT,
+    transparent: true,
+    depthWrite: false
+    });
+    greenSp = new THREE.Mesh(greenSpGeo, greenSpPlane);
+    greenSp.position.set(-90,0, 15); 
+    greenSp.name="greenSp"; 
+//rainWM
+      let rainWMT = loader.load("../illustrations/BLD1.png")
+      var rainWMGeo = new THREE.PlaneGeometry(40, 22.5);
+      var rainWMPlane = new THREE.MeshStandardMaterial({
+        map: rainWMT,
+        transparent: true,
+        depthWrite: false
+        });
+        rainWM = new THREE.Mesh(rainWMGeo, rainWMPlane);
+        rainWM.position.set(-90,0, 53); 
+        rainWM.name="rainWM"; 
+  //wetland
+      let wetlandT = loader.load("../illustrations/wetland.PNG")
+      var wetlandGeo = new THREE.PlaneGeometry(34.56, 25.119);
+      var wetlandPlane = new THREE.MeshStandardMaterial({
+        map: wetlandT,
+        transparent: true,
+        depthWrite: false
+        });
+        wetland = new THREE.Mesh(wetlandGeo, wetlandPlane);
+        wetland.position.set(-90,0, -10); 
+        wetland.name="wetland"; 
+      //adaPer
+      let adaPerT = loader.load("../illustrations/BLD3.PNG")
+      var adaPerGeo = new THREE.PlaneGeometry(34.56, 25.119);
+      var adaPerPlane = new THREE.MeshStandardMaterial({
+        map: adaPerT,
+        transparent: true,
+        depthWrite: false
+        });
+        adaPer = new THREE.Mesh(adaPerGeo, adaPerPlane);
+        adaPer.position.set(-90,0, -10); 
+        adaPer.name="adaPer";
+  
+     subPortalObj[3] = [greenSp, rainWM,wetland, adaPer]
+     console.log( subPortalObj[3]); 
+     subPortalObj[3].forEach(ada=>{
+      ada.rotation.x = -90 * (Math.PI / 180);
+      ada.position.y = -90;
+      ada.material.opacity =0; 
+       scene.add(ada); 
+     })
+}
   function cameraBegin(camera){
   let counter =0; 
   titles.forEach(title=>{
@@ -378,9 +553,7 @@ title.classList.add("fadeAway2");
       if(camera.rotation.z >0){
        notAtzero =true; 
       }
-      mainMapLables.forEach(label=>{
-        label.style="display:block"; 
-      })
+      mainMapLable.style="display:block"; 
       mainMapLables2.forEach(label=>{
         label.style="display:block"; 
       })
@@ -407,45 +580,49 @@ title.classList.add("fadeAway2");
     console.log(eggs.length); 
     //MAIN PORTALS
     eggs.forEach((egg, index)=> {
+      subPortalObj[index].forEach(subPortal=>{
+        domEvents.addEventListener(subPortal, "click", function(event){
+          console.log(subPortal.name); 
+          clickSubPortal(subPortal);  
+          }); 
+       })
         domEvents.addEventListener(egg, "click", function(event){
-          goToClicked(zoomPositions[index], index);  
+          goToClicked(zoomPositions[index]);  
           //remove all the main eggs
+          console.log(index)
           currentPortal = index; 
+  
           //get rid of the labels from the main map
-          mainMapLables.forEach(label=>{
-            label.style="display:none"; 
-            // label.classList.add('fadeAway');
-          })
+          mainMapLable.style= "display:none"; 
           mainMapLables2.forEach(label=>{
             label.style="display:none"; 
-            // label.classList.add('fadeAway');
           })
+          //fade all main eggs and bring in sub eggs
           eggs.forEach(egg=>{
           new TWEEN.Tween(egg.material ).to( { opacity: 0 }, 2000 ).onComplete(()=>{
             scene.remove(egg);}).onComplete(()=>{
               jump(subPortalObj[index]); 
               mainMapBtn.style="display:flex"; 
               portalLabels[index].forEach(label=>{
-                label.style="display: block";
-                console.log(label); 
-              })
-              //add subPortal events
-              subPortalObj[index].forEach(subPortal=>{
-                //bring those subPortal Objects in
-                //add clickEvents for subPortals
-                domEvents.addEventListener(subPortal, "click", function(event){
-                  clickSubPortal(subPortal, index);  
-                }); 
-                subPortal.position.y = 3;
-                new TWEEN.Tween(subPortal.material).to( { opacity: 1 }, 1000 ).onComplete(()=>{
-                //bring in the intro popUp 
-                introPopups[index].style ="display: block;"
-                }).start();
-              })    
-            }).start();
-            })
+                label.style="display: block";}) 
+                subPortalObj[index].forEach(subPortal=>{
+                  //bring those subPortal Objects in
+                  subPortal.position.y = 3;
+                  new TWEEN.Tween(subPortal.material).to( { opacity: 1 }, 1000 ).onComplete(()=>{
+                  introPopups[index].style ="display: block;"
+                  }).start();
+                  if(index==1){
+                    geoExtra.forEach(geos=>{
+                      geos.position.y=0; 
+                      new TWEEN.Tween(geos.material).to( { opacity: 1 }, 1000 ).start();
+                    })
+                  }
+                })    
+              }).start();
+            })  
       })
-  })
+    })
+
 }
 function closePopUps(){
   allPopUps.forEach(popUp=>{
@@ -455,8 +632,12 @@ function closePopUps(){
   })
 }
 function goToMainPortal(){
+        //SUBPORTALS
+
   closePopUps()
   zoomPositions[currentPortal]
+  console.log("current portal" + currentPortal); 
+
   let coords = new THREE.Vector3(zoomPositions[currentPortal].x, zoomPositions[currentPortal].y, zoomPositions[currentPortal].z);
   portalLabels[currentPortal].forEach(label=>{
     label.style="display: block";
@@ -467,7 +648,16 @@ function goToMainPortal(){
 }
 function goToMainMap(){
   closePopUps(); 
+  ///get rid of extra illustrations
+  if(currentPortal==1){
+    geoExtra.forEach(geos=>{
+      new TWEEN.Tween(geos.material).to( { opacity: 0 }, 1000 ).onComplete(()=>{
+        geos.position.y=-900; 
+      }).start();
+    })
+  }
   mainMapBtn.classList.add('fadeAway');
+  mainMapBtn.style ="display:none"; 
   portalLabels[currentPortal].forEach(label=>{
     label.style="display: none";
   })
@@ -478,9 +668,8 @@ function goToMainMap(){
 subPortalObj.forEach(subPortal=>{
   subPortal.forEach(subSubPortal=>{
     new TWEEN.Tween(subSubPortal.material).to( { opacity: 0 }, 2000 ).onComplete(()=>{
-      mainMapLables.forEach(label=>{
-        label.style="display:block"; 
-      })
+      subSubPortal.position.y = -2000; 
+      mainMapLable.style="display:block"; 
       mainMapLables2.forEach(label=>{
         label.style="display:block"; 
       })
@@ -492,24 +681,30 @@ var tween = new TWEEN.Tween(camera.position)
 .to(coords, 2000).delay(500) 
 .easing(TWEEN.Easing.Quadratic.InOut).start(); 
 }
-  function goToClicked(position, index){
+  function goToClicked(position){
        // jump(subPortal);  
     new TWEEN.Tween(camera.position).to(
       position, 1500).easing(TWEEN.Easing.Quadratic.In)
     .onComplete(() =>{}).start(); 
   }
 
-  function clickSubPortal(subPortal, index){
+  function clickSubPortal(subPortal){
     let position ={x:subPortal.position.x, y:subPortal.position.y+30, z:subPortal.position.z}
-    goToClicked(position, index)
-    console.log(subPortal.name); 
-    subPortalPopUps.forEach(popUp=>{
-    if(popUp.id == subPortal.name){
-      popUp.style="display:block"; 
-    }; 
+    goToClicked(position)
+
+
     portalLabels[currentPortal].forEach(label=>{
       label.style="display: none";
     })
+    subPortalPopUps.forEach(popUp=>{
+      
+    if(popUp.id == subPortal.name){
+      popUp.style="display:block"; 
+      console.log(subPortal.name); 
+      console.log(popUp.id); 
+      return
+    }; 
+ 
     })
     //bring in Labels
 

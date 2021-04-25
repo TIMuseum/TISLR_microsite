@@ -562,8 +562,8 @@ z-index: 10;
       right: 50%;
     }
     #geoLabel{
-      bottom: 43%;
-      right: 42%;
+      top: 45%;
+      right: 50%;
     }
     #adaLabel{
       bottom: 36%;
@@ -596,6 +596,18 @@ z-index: 10;
     #YBLLabel{
       top: 45%;
       right: 25%;
+    }
+    #environStewLabel{
+      top: 27%;
+      left:10%;
+    }
+    #publicServLabel{
+      top: 67%;
+      left: 35%;
+    }
+    #facilLabel{
+        bottom: 11%; 
+        right: 28%
     }
     .mainLabel, .histlabel, .geoLabel, .adaLabel, .comLabel{
       bottom: 3vh; 

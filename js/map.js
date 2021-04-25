@@ -233,7 +233,7 @@ function makeClouds(){
           var nPlane = new THREE.MeshStandardMaterial({
             map: navyChurchT,
             transparent: true,
-            depthWrite: false
+            depthWrite: true,
             });
            chapel = new THREE.Mesh(nGeo, nPlane);
            chapel.position.set(-118,0, 40); 
@@ -243,10 +243,10 @@ function makeClouds(){
         var sPlane = new THREE.MeshStandardMaterial({
           map: skyScrT,
           transparent: true,
-          depthWrite: false
+          depthWrite: true,
           });
         skyscrapper = new THREE.Mesh(sGeo, sPlane);
-        skyscrapper.position.set(-105,0, 0); 
+        skyscrapper.position.set(-120,0, -33); 
          //Beach
          let beachT = loader.load("../illustrations/beach.png")
          var bGeo = new THREE.PlaneGeometry(41.424, 28.8);
@@ -266,21 +266,21 @@ function makeClouds(){
             depthWrite: false
             });
           mural = new THREE.Mesh(mGeo, mPlane);
-          mural.position.set(-150,0, -30); 
+          mural.position.set(-150,0, -10); 
       //EGGS GROUP
           eggs= [chapel, skyscrapper, mural, beach];
           eggs.forEach(egg=>{
             egg.rotation.x = -90 * (Math.PI / 180);
-            egg.position.y = 3;
+            egg.position.y = 6;
             scene.add(egg); 
           }); 
           scene.add(map);
           camera.rotation.x = -90 * (Math.PI / 180);
           // set the position to zoom for each main egg
           zoomPositions[0] ={x:-20,y:100,z:20}; 
-          zoomPositions[1] ={x:-138,y:100,z:40}; 
-          zoomPositions[2] ={x:-138,y:100,z:40}; 
-          zoomPositions[3] ={x:-138,y:100,z:40};
+          zoomPositions[1] ={x:-158,y:78,z:10}; 
+          zoomPositions[2] ={x:-110,y:60,z:25}; 
+          zoomPositions[3] ={x:-178,y:65,z:0};
           history()
           geology()
           community()
@@ -294,7 +294,7 @@ function makeClouds(){
       var b1Plane = new THREE.MeshStandardMaterial({
         map: BLD1T,
         transparent: true,
-        depthWrite: false
+        depthWrite: false,
         });
       BLD1 = new THREE.Mesh(b1Geo, b1Plane);
       BLD1.position.set(-90,0, 53); 
@@ -305,29 +305,31 @@ function makeClouds(){
       var b2Plane = new THREE.MeshStandardMaterial({
         map: BLD2T,
         transparent: true,
-        depthWrite: false
+        depthWrite:  false,
         });
       BLD2 = new THREE.Mesh(b2Geo, b2Plane);
-      BLD2.position.set(-90,0, 15); 
+      BLD2.position.set(-82,0, 17); 
       BLD2.name="BLD2"; 
+      BLD2.scale.set(.8, .8, .8); 
       //BLD3
       let BLD3T = loader.load("../illustrations/BLD3.PNG")
       var b3Geo = new THREE.PlaneGeometry(34.56, 25.119);
       var b3Plane = new THREE.MeshStandardMaterial({
         map: BLD3T,
         transparent: true,
-        depthWrite: false
+        depthWrite:  false,
         });
       BLD3 = new THREE.Mesh(b3Geo, b3Plane);
-      BLD3.position.set(-90,0, -10); 
+      BLD3.position.set(-82,0, -7); 
       BLD3.name="BLD3"; 
+      BLD3.scale.set(.75, .75, .75); 
        //nimitz
        let NimitzT = loader.load("../illustrations/Nimitz.PNG")
        var NimitzGeo = new THREE.PlaneGeometry(38.4, 21.6);
        var NimitzPlane = new THREE.MeshStandardMaterial({
          map: NimitzT,
          transparent: true,
-         depthWrite: false
+         depthWrite:  false,
          });
          Nimitz = new THREE.Mesh(NimitzGeo, NimitzPlane);
          Nimitz.position.set(-11,0, 30); 
@@ -338,7 +340,7 @@ function makeClouds(){
        var torpPlane = new THREE.MeshStandardMaterial({
          map: torpT,
          transparent: true,
-         depthWrite: false
+         depthWrite:  false,
          });
          Torp = new THREE.Mesh(torpGeo, torpPlane);
          Torp.position.set(-10,0, -6); 
@@ -350,7 +352,7 @@ function makeClouds(){
        var yblPlane = new THREE.MeshStandardMaterial({
          map: yblT,
          transparent: true,
-         depthWrite: false
+         depthWrite:  false,
          });
          YBL = new THREE.Mesh(yblGeo, yblPlane);
          YBL.position.set(40,0, 13); 
@@ -359,7 +361,7 @@ function makeClouds(){
          console.log( subPortalObj[0]); 
          subPortalObj[0].forEach(history=>{
           history.rotation.x = -90 * (Math.PI / 180);
-          history.position.y = -90;
+          history.position.y = -1300;
           history.material.opacity =0; 
            scene.add(history); 
          })
@@ -367,69 +369,70 @@ function makeClouds(){
   function geology(){
     //soilD
     let soilDT = loader.load("../illustrations/crane.png")
-    var soilDGeo = new THREE.PlaneGeometry(38.4, 21.6);
+    var soilDGeo = new THREE.PlaneGeometry(36, 27);
     var soilDPlane = new THREE.MeshStandardMaterial({
       map: soilDT,
       transparent: true,
       depthWrite: false
       });
       soilD = new THREE.Mesh(soilDGeo, soilDPlane);
-      soilD.position.set(-90,0, 15); 
+      soilD.position.set(-95,-1300, 42); 
       soilD.name="soilD"; 
   //contam
         let contamT = loader.load("../illustrations/cleaning.png")
-        var contamGeo = new THREE.PlaneGeometry(40, 22.5);
+        var contamGeo = new THREE.PlaneGeometry(27.685, 20);
         var contamPlane = new THREE.MeshStandardMaterial({
           map: contamT,
           transparent: true,
           depthWrite: false
           });
           contam = new THREE.Mesh(contamGeo, contamPlane);
-          contam.position.set(-90,0, 53); 
+          contam.position.set(-215,-1300, -3); 
           contam.name="contam"; 
     //urbanDes
     let urbanDesT = loader.load("../illustrations/urbanDes.png")
-    var urbanDesGeo = new THREE.PlaneGeometry(40, 30);
+    var urbanDesGeo = new THREE.PlaneGeometry(51.03, 30);
     var urbanDesPlane = new THREE.MeshStandardMaterial({
       map: urbanDesT,
       transparent: true,
       depthWrite: false
       });
       urbanDes = new THREE.Mesh(urbanDesGeo, urbanDesPlane);
-      urbanDes.position.set(-90,-300, -10); 
+      urbanDes.position.set(-97,-1300, -5); 
       urbanDes.name="urbanDes"; 
       //contam elevated
       let contamPadT = loader.load("../illustrations/contamin.png")
-      var contamPadGeo = new THREE.PlaneGeometry(40, 30);
+      var contamPadGeo = new THREE.PlaneGeometry(86.8, 80);
       var contamPadPlane = new THREE.MeshStandardMaterial({
         map: contamPadT,
         transparent: true,
         depthWrite: false
         });
         contamPad = new THREE.Mesh(contamPadGeo, contamPadPlane);
-        contamPad.position.set(-90,-300, -10); 
-      //contam elevated
+        contamPad.position.set(-202.5,-300, 25); 
+      //elevated
        let elevPadT = loader.load("../illustrations/elevated.png")
-       var elevPadGeo = new THREE.PlaneGeometry(40, 30);
+       var elevPadGeo = new THREE.PlaneGeometry(142.695, 105);
        var elevPadPlane = new THREE.MeshStandardMaterial({
        map: elevPadT,
        transparent: true,
        depthWrite: false
          });
          elevPad = new THREE.Mesh(elevPadGeo, elevPadPlane);
-         elevPad.position.set(-90,0, -10); 
+         elevPad.position.set(-143,0, 15); 
          geoExtra= [contamPad, elevPad]; 
 
          geoExtra.forEach(geo=>{
           geo.rotation.x = -90 * (Math.PI / 180);
           geo.material.opacity =0; 
+          // geo.position.y =-1300; 
           scene.add(geo); 
          })
 
        subPortalObj[1] = [soilD,contam,urbanDes]
        subPortalObj[1].forEach(geo=>{
         geo.rotation.x = -90 * (Math.PI / 180);
-        geo.position.y = -90;
+        geo.position.y = -1300;
         geo.material.opacity =0; 
          scene.add(geo); 
        })
@@ -437,43 +440,44 @@ function makeClouds(){
 function community(){
   //environStew
   let environStewT = loader.load("../illustrations/environ.png")
-  var environStewGeo = new THREE.PlaneGeometry(38.4, 21.6);
+  var environStewGeo = new THREE.PlaneGeometry(38, 24.74);
   var environStewPlane = new THREE.MeshStandardMaterial({
     map: environStewT,
     transparent: true,
     depthWrite: false
     });
     environStew = new THREE.Mesh(environStewGeo, environStewPlane);
-    environStew.position.set(-150,0, 15); 
+    environStew.position.set(-160,0, 5); 
     environStew.name="environStew"; 
 //publicServ
       let publicServT = loader.load("../illustrations/foodDisrtib.png")
-      var publicServGeo = new THREE.PlaneGeometry(40, 22.5);
+      var publicServGeo = new THREE.PlaneGeometry(46.228, 26);
       var publicServPlane = new THREE.MeshStandardMaterial({
         map: publicServT,
         transparent: true,
         depthWrite: false
         });
         publicServ = new THREE.Mesh(publicServGeo, publicServPlane);
-        publicServ.position.set(-180,0, 53); 
+        publicServ.position.set(-130,0, 30); 
         publicServ.name="publicServ"; 
   //facil
   let facilT = loader.load("../illustrations/teaching.png")
-  var facilGeo = new THREE.PlaneGeometry(34.56, 25.119);
+  var facilGeo = new THREE.PlaneGeometry(30.942, 27);
   var facilPlane = new THREE.MeshStandardMaterial({
     map: facilT,
     transparent: true,
     depthWrite: false
     });
     facil = new THREE.Mesh(facilGeo, facilPlane);
-    facil.position.set(-90,0, -10); 
+    facil.position.set(-90,0, 45); 
     facil.name="facil"; 
-  
+    publicServ.scale.set(.8, .8, .8); 
      subPortalObj[2] = [environStew,publicServ,facil]
      console.log( subPortalObj[2]); 
      subPortalObj[2].forEach(com=>{
       com.rotation.x = -90 * (Math.PI / 180);
-      com.position.y = -90;
+      com.scale.set(.8, .8, .8); 
+      com.position.y = -1300;
       com.material.opacity =0; 
        scene.add(com); 
      })
@@ -481,54 +485,54 @@ function community(){
 function adaptive(){
   //greenSp
   let greenSpT = loader.load("../illustrations/green.png")
-  var greenSpGeo = new THREE.PlaneGeometry(38.4, 21.6);
+  var greenSpGeo = new THREE.PlaneGeometry(30.46, 20);
   var greenSpPlane = new THREE.MeshStandardMaterial({
     map: greenSpT,
     transparent: true,
     depthWrite: false
     });
     greenSp = new THREE.Mesh(greenSpGeo, greenSpPlane);
-    greenSp.position.set(-90,0, 15); 
+    greenSp.position.set(-212,0, 5); 
     greenSp.name="greenSp"; 
 //rainWM
-      let rainWMT = loader.load("../illustrations/BLD1.png")
-      var rainWMGeo = new THREE.PlaneGeometry(40, 22.5);
+      let rainWMT = loader.load("../illustrations/planters.png")
+      var rainWMGeo = new THREE.PlaneGeometry(38.075, 25);
       var rainWMPlane = new THREE.MeshStandardMaterial({
         map: rainWMT,
         transparent: true,
         depthWrite: false
         });
         rainWM = new THREE.Mesh(rainWMGeo, rainWMPlane);
-        rainWM.position.set(-90,0, 53); 
+        rainWM.position.set(-175,0, 27); 
         rainWM.name="rainWM"; 
   //wetland
       let wetlandT = loader.load("../illustrations/wetland.PNG")
-      var wetlandGeo = new THREE.PlaneGeometry(34.56, 25.119);
+      var wetlandGeo = new THREE.PlaneGeometry(30.5, 25);
       var wetlandPlane = new THREE.MeshStandardMaterial({
         map: wetlandT,
         transparent: true,
         depthWrite: false
         });
         wetland = new THREE.Mesh(wetlandGeo, wetlandPlane);
-        wetland.position.set(-90,0, -10); 
+        wetland.position.set(-190,0, -25); 
         wetland.name="wetland"; 
       //adaPer
-      let adaPerT = loader.load("../illustrations/BLD3.PNG")
-      var adaPerGeo = new THREE.PlaneGeometry(34.56, 25.119);
+      let adaPerT = loader.load("../illustrations/bolders.png")
+      var adaPerGeo = new THREE.PlaneGeometry(35.7, 35);
       var adaPerPlane = new THREE.MeshStandardMaterial({
         map: adaPerT,
         transparent: true,
         depthWrite: false
         });
         adaPer = new THREE.Mesh(adaPerGeo, adaPerPlane);
-        adaPer.position.set(-90,0, -10); 
+        adaPer.position.set(-220,0, -22); 
         adaPer.name="adaPer";
   
      subPortalObj[3] = [greenSp, rainWM,wetland, adaPer]
      console.log( subPortalObj[3]); 
      subPortalObj[3].forEach(ada=>{
       ada.rotation.x = -90 * (Math.PI / 180);
-      ada.position.y = -90;
+      ada.position.y = -1300;
       ada.material.opacity =0; 
        scene.add(ada); 
      })
@@ -587,38 +591,60 @@ title.classList.add("fadeAway2");
           }); 
        })
         domEvents.addEventListener(egg, "click", function(event){
+          subPortalObj[0].forEach(subPortal=>{
+            scene.remove(subPortal)
+          }); 
+          subPortalObj[1].forEach(subPortal=>{
+            scene.remove(subPortal)
+          }); 
+          subPortalObj[2].forEach(subPortal=>{
+            scene.remove(subPortal)
+          }); 
+          subPortalObj[3].forEach(subPortal=>{
+            scene.remove(subPortal)
+          }); 
           goToClicked(zoomPositions[index]);  
           //remove all the main eggs
           console.log(index)
           currentPortal = index; 
-  
+       
           //get rid of the labels from the main map
           mainMapLable.style= "display:none"; 
           mainMapLables2.forEach(label=>{
             label.style="display:none"; 
           })
+          egg.position.y= -300; 
           //fade all main eggs and bring in sub eggs
-          eggs.forEach(egg=>{
-          new TWEEN.Tween(egg.material ).to( { opacity: 0 }, 2000 ).onComplete(()=>{
-            scene.remove(egg);}).onComplete(()=>{
+          eggs.forEach(eggy=>{
+            // scene.remove(egg); 
+          new TWEEN.Tween(eggy.material ).to( { opacity: 0 }, 2000 ).onComplete(()=>{
+              //eggs out of site so they dont get clicked 
+              eggy.position.y= -300; 
+              // scene.remove(egg); 
+            
               jump(subPortalObj[index]); 
               mainMapBtn.style="display:flex"; 
               portalLabels[index].forEach(label=>{
                 label.style="display: block";}) 
                 subPortalObj[index].forEach(subPortal=>{
                   //bring those subPortal Objects in
-                  subPortal.position.y = 3;
+                  scene.add(subPortal); 
+                  subPortal.position.y = 10;
+                  console.log(subPortal)
+                  scene.add(subPortal); 
                   new TWEEN.Tween(subPortal.material).to( { opacity: 1 }, 1000 ).onComplete(()=>{
                   introPopups[index].style ="display: block;"
                   }).start();
                   if(index==1){
-                    geoExtra.forEach(geos=>{
-                      geos.position.y=0; 
+                    geoExtra.forEach((geos, index)=>{
+                      geos.position.y=2+index; 
+                      console.log(geos); 
                       new TWEEN.Tween(geos.material).to( { opacity: 1 }, 1000 ).start();
                     })
                   }
                 })    
               }).start();
+              console.log(egg); 
             })  
       })
     })
@@ -633,7 +659,6 @@ function closePopUps(){
 }
 function goToMainPortal(){
         //SUBPORTALS
-
   closePopUps()
   zoomPositions[currentPortal]
   console.log("current portal" + currentPortal); 
@@ -652,7 +677,7 @@ function goToMainMap(){
   if(currentPortal==1){
     geoExtra.forEach(geos=>{
       new TWEEN.Tween(geos.material).to( { opacity: 0 }, 1000 ).onComplete(()=>{
-        geos.position.y=-900; 
+        geos.position.y=-1300; 
       }).start();
     })
   }
@@ -663,12 +688,18 @@ function goToMainMap(){
   })
   //bring back the easter eggs 
   eggs.forEach(egg=>{
+    egg.position.y=6; 
+    scene.add(egg); 
     new TWEEN.Tween(egg.material ).to( { opacity: 1 }, 2000 ).start(); 
 })
+
 subPortalObj.forEach(subPortal=>{
   subPortal.forEach(subSubPortal=>{
+    subSubPortal.position.y=-300
+   scene.remove(subSubPortal); 
+    console.log(subSubPortal)
     new TWEEN.Tween(subSubPortal.material).to( { opacity: 0 }, 2000 ).onComplete(()=>{
-      subSubPortal.position.y = -2000; 
+      // subSubPortal.position.y = -300; 
       mainMapLable.style="display:block"; 
       mainMapLables2.forEach(label=>{
         label.style="display:block"; 
@@ -677,9 +708,12 @@ subPortalObj.forEach(subPortal=>{
   })
 })
 let coords = new THREE.Vector3(camMain.x, camMain.y, camMain.z);
-var tween = new TWEEN.Tween(camera.position)
-.to(coords, 2000).delay(500) 
-.easing(TWEEN.Easing.Quadratic.InOut).start(); 
+var tween = new TWEEN.Tween(camera.position).to(coords, 2000).delay(500).easing(TWEEN.Easing.Quadratic.InOut).start();
+// subPortalObj[currentPortal].forEach(subPortal=>{
+//   //bring those subPortal Objects in
+//   subPortal.position.y = -90;
+//   console.log(subPortal)
+// })   
 }
   function goToClicked(position){
        // jump(subPortal);  
@@ -691,7 +725,6 @@ var tween = new TWEEN.Tween(camera.position)
   function clickSubPortal(subPortal){
     let position ={x:subPortal.position.x, y:subPortal.position.y+30, z:subPortal.position.z}
     goToClicked(position)
-
 
     portalLabels[currentPortal].forEach(label=>{
       label.style="display: none";

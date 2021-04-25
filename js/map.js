@@ -492,7 +492,7 @@ function adaptive(){
     depthWrite: false
     });
     greenSp = new THREE.Mesh(greenSpGeo, greenSpPlane);
-    greenSp.position.set(-212,0, 5); 
+    greenSp.position.set(-210,0, 0); 
     greenSp.name="greenSp"; 
 //rainWM
       let rainWMT = loader.load("../illustrations/planters.png")
@@ -514,7 +514,7 @@ function adaptive(){
         depthWrite: false
         });
         wetland = new THREE.Mesh(wetlandGeo, wetlandPlane);
-        wetland.position.set(-190,0, -25); 
+        wetland.position.set(-183,0, -28); 
         wetland.name="wetland"; 
       //adaPer
       let adaPerT = loader.load("../illustrations/bolders.png")

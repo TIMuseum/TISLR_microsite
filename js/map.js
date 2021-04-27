@@ -3,7 +3,7 @@ let manager = new THREE.LoadingManager();
 const loader = new THREE.TextureLoader(manager);
 //CAMERA VARIABLES
 const fov = 75;
-let camStart = {x:-150, y:2050, z:0}; 
+let camStart = {x:-155, y:2020, z:-30}; 
 // let camStart = {x:-150, y:200, z:0}; 
 let camMain = {x:-100, y:140, z:10}; 
 //OBJECT VARIABLES
@@ -53,7 +53,7 @@ manager.onLoad = function ( ) {
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
   console.log(windowRatio); 
-  zRotation = windowRatio.map(.75, 2, .000035,.00003); 
+  zRotation = windowRatio.map(.75, 2, .000035,.00002); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 
@@ -183,8 +183,8 @@ function makeClouds(){
     });
      landMass = new THREE.Mesh(planeGeometry3, planeMaterial3);
      landMass.rotation.x = -90 * (Math.PI / 180);
-     landMass.rotation.z =  55 * (Math.PI / 180);
-     landMass.position.set(360, -5, -750);
+     landMass.rotation.z =  54 * (Math.PI / 180);
+     landMass.position.set(370, -5, -755);
     scene.add(landMass);
   //WATER TEXTURES
     const mediumBLue = loader.load("../textures/waterTextured.png");
@@ -297,7 +297,7 @@ function makeClouds(){
         depthWrite: false,
         });
       BLD1 = new THREE.Mesh(b1Geo, b1Plane);
-      BLD1.position.set(-90,0, 53); 
+      BLD1.position.set(-85,0, 53); 
       BLD1.name="BLD1"; 
       //BLD2
       let BLD2T = loader.load("../illustrations/BD2.png")

@@ -116,10 +116,10 @@ right: 20px;
  }
  #exploreBtn{
    position: sticky;
-   left: 40%;
+   left: 35%;
    margin:0px auto; 
    top: 50%; 
-   padding: 16px 20px; 
+   padding: 20px 24px; 
    animation: crescendo2 .7s alternate infinite ease-in; 
  }
  .navButtons h3, .exploreBtn h3{
@@ -128,8 +128,9 @@ right: 20px;
  .navButtons h3{
   font-size: 14px; 
  }
- .exploreBtn h3{
-   line-height: 2em;
+ #exploreBtn h3{
+   font-size: 22px; 
+   line-height: 1.75em;
    word-spacing: .1em; 
  }
   /******************************** GENERAL TYPE ****************************/
@@ -514,13 +515,13 @@ z-index: 10;
    .popUp, #mainMapBtn {
      display: none; 
      opacity: 0; 
-     animation: fadeIn 3s 3.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+     animation: fadeIn 3s 2s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
    }
    #mainMapBtn{
     animation: fadeIn 3s 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
    }
    .subPortalPopUp{
-    animation: fadeIn 3s 3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    animation: fadeIn 3s 2.25s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
    }
    .popUp h1,  .popUp h2, .label h3 {
    color: #0F6F84; 
@@ -548,7 +549,7 @@ z-index: 10;
   .label{
     display: none;
     opacity: 0; 
-    animation: fadeIn 3s 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+    animation: fadeIn 3s 1s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
     position: absolute; 
     /* animation-fill-mode: backwards; */
    box-shadow:-4px 4px 4px #0F6F84;
@@ -638,8 +639,8 @@ z-index: 10;
       left: 32%
     }
     .mainLabel, .histlabel, .geoLabel, .adaLabel, .comLabel{
-      bottom: 3vh; 
-      left: 3vw; 
+      top: 7vh; 
+      left: 2vw; 
     }
     .mainLabel h3,.histlabel h3, .geoLabel h3, .adaLabel h3, .comLabel h3{
       font-size:32px; 

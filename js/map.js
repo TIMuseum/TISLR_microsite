@@ -53,7 +53,7 @@ manager.onLoad = function ( ) {
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
   console.log(windowRatio); 
-  zRotation = windowRatio.map(.75, 3, .000025,.000005); 
+  zRotation = windowRatio.map(.75, 2, .000035,.00003); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 
@@ -266,7 +266,7 @@ function makeClouds(){
             depthWrite: false
             });
           mural = new THREE.Mesh(mGeo, mPlane);
-          mural.position.set(-150,0, -10); 
+          mural.position.set(-155,0, -10); 
       //EGGS GROUP
           eggs= [chapel, skyscrapper, mural, beach];
           eggs.forEach(egg=>{
@@ -279,8 +279,8 @@ function makeClouds(){
           // set the position to zoom for each main egg
           zoomPositions[0] ={x:-20,y:100,z:20}; 
           zoomPositions[1] ={x:-158,y:78,z:10}; 
-          zoomPositions[2] ={x:-110,y:60,z:25}; 
-          zoomPositions[3] ={x:-178,y:65,z:0};
+          zoomPositions[2] ={x:-120,y:60,z:25}; 
+          zoomPositions[3] ={x:-205,y:55,z:-15};
           history()
           geology()
           community()
@@ -492,7 +492,8 @@ function adaptive(){
     depthWrite: false
     });
     greenSp = new THREE.Mesh(greenSpGeo, greenSpPlane);
-    greenSp.position.set(-210,0, 0); 
+    greenSp.scale.set(.7, .7, .7); 
+    greenSp.position.set(-220,0, 4); 
     greenSp.name="greenSp"; 
 //rainWM
       let rainWMT = loader.load("../illustrations/planters.png")
@@ -503,7 +504,8 @@ function adaptive(){
         depthWrite: false
         });
         rainWM = new THREE.Mesh(rainWMGeo, rainWMPlane);
-        rainWM.position.set(-175,0, 27); 
+        rainWM.scale.set(.8, .8, .8); 
+        rainWM.position.set(-185,0,0); 
         rainWM.name="rainWM"; 
   //wetland
       let wetlandT = loader.load("../illustrations/wetland.PNG")
@@ -514,7 +516,8 @@ function adaptive(){
         depthWrite: false
         });
         wetland = new THREE.Mesh(wetlandGeo, wetlandPlane);
-        wetland.position.set(-183,0, -28); 
+        wetland.position.set(-190,0, -30); 
+        wetland.scale.set(.8, .8, .8); 
         wetland.name="wetland"; 
       //adaPer
       let adaPerT = loader.load("../illustrations/bolders.png")
@@ -525,7 +528,7 @@ function adaptive(){
         depthWrite: false
         });
         adaPer = new THREE.Mesh(adaPerGeo, adaPerPlane);
-        adaPer.position.set(-220,0, -22); 
+        adaPer.position.set(-227,0, -23); 
         adaPer.name="adaPer";
   
      subPortalObj[3] = [greenSp, rainWM,wetland, adaPer]

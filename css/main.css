@@ -562,16 +562,16 @@ z-index: 10;
       right: 50%;
     }
     #geoLabel{
-      top: 45%;
-      right: 50%;
+      top: 38%;
+      right: 45%;
     }
     #adaLabel{
       bottom: 36%;
      left: 19%;
     }
     #comLabel{
-      top: 35%;
-      left: 32%;
+      top: 44%;
+      left: 29%;
     }
     #BL1Label{
       bottom: 33%;
@@ -586,19 +586,19 @@ z-index: 10;
       left: 15%;
     }
     #nimitzLabel{
-      top: 52%;
+      top: 65%;
       right: 45%;
     }
     #torpLabel{
-      top: 28%;
+      top: 26%;
       right: 45%;
     }
     #YBLLabel{
-      top: 45%;
+      top: 58%;
       right: 25%;
     }
     #environStewLabel{
-      top: 27%;
+      top: 33%;
       left:10%;
     }
     #publicServLabel{
@@ -607,7 +607,35 @@ z-index: 10;
     }
     #facilLabel{
         bottom: 11%; 
-        right: 28%
+        right: 22%
+    }
+    #soilDLabel{
+      bottom: 15%; 
+      right: 23%
+    }
+    #contamLabel{
+      top: 48%; 
+      left: 12%; 
+    }
+    #urbanDesLabel{
+      top: 19%; 
+      right: 25%
+    }
+    #greenSpLabel{
+      bottom: 12%; 
+      left: 30%
+    }
+    #rainWMLabel{
+      top: 55%; 
+      right: 25%
+    }
+    #wetlandLabel{
+      top: 19%; 
+      right: 25%
+    }
+    #adaPerLabel{
+      top: 45%; 
+      left: 32%
     }
     .mainLabel, .histlabel, .geoLabel, .adaLabel, .comLabel{
       bottom: 3vh; 

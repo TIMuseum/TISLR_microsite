@@ -224,7 +224,7 @@ padding-top: 10%;
 /* height: 100vh;  */
  }
 .TISLR2{
-  margin-top: 150px; 
+  margin-top: 225px; 
   width: 80vw; 
   height: 45vh; 
   /* border: 2px solid blue;  */
@@ -240,23 +240,26 @@ padding-top: 10%;
  .TISLR1 p{
    margin-bottom: 14px; 
    font-size: 20px; 
+   width: 46%; 
  }
- .TISLR1 p:nth-child(2){
+ /* .TISLR1 p:nth-child(2){
    padding-left: 40px; 
- }
+ } */
  .sideParas{
    display: flex;
+   justify-content: space-between;
+   margin-top: 40px; 
  }
  #ClimateMaps h2{
-   font-size: 82px;
+   font-size: 102px;
    font-weight: 100;
-   margin-bottom: 40px; 
+   margin-bottom: 120px; 
  }
  #ClimateMaps h3{
   font-weight: 300;
   font-size: 24px; 
   font-style: italic; 
-  margin-bottom: 90px; 
+  margin-bottom: 30px; 
  }
  #ClimateMaps h4{
    font-size: 24px; 
@@ -371,8 +374,8 @@ right: 0%;
    z-index: 10; 
  }
  .floodmap img{
-display:none; 
-border: 1px solid red; 
+  display:none; 
+  border: 1px solid red; 
  }
  .medIMG, .highIMG {
    opacity: 0;  
@@ -380,6 +383,36 @@ border: 1px solid red;
 .selectedIMG{
    opacity: 1; 
  }
+
+ .breach{
+   margin-top: 250px; 
+   margin-bottom: 150px; 
+ }
+ .breachContent{
+   display: flex; 
+   justify-content: space-between;
+   margin-top: 40px; 
+ }
+ .breachContent p{
+   width: 40%; 
+   font-size:  20px;
+   /* border: 1px solid red;  */
+ }
+ .breachIMG{
+  width: 50%; 
+}
+.breachIMG img{
+  width: 100%; 
+}
+#breach2{
+  font-size:40px; 
+  color: #F9ECDC;
+  font-family: 'Lemon-milk'; 
+  font-weight: 300; 
+  font-style: italic; 
+  margin-bottom: 40px; 
+  /* margin-bottom: 40px;  */
+}
 /**************INTRO NARS *******************/
 .stickyBlock{
   height: 3000px; 

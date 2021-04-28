@@ -211,49 +211,52 @@ p{
   letter-spacing: 1px; 
 }
  /******************************** LUCIEN MAP****************************/
- #ClimateMaps,#interactive, #sliderBar, #scenarios, #topSLR, #year{
+#interactive, #sliderBar, #scenarios, #topSLR, #year{
   display: flex; 
   justify-content: space-between;
 }
  #ClimateMaps{
+   display: inline-block; 
+width: 100vw; 
 background-color: #1292AF; 
-height: 100vh; 
+height: 100%; 
+padding-top: 10%;
+/* height: 100vh;  */
  }
-.TISLR2, .TISLR1 {
-  height: 100vh; 
-  position: absolute;
-  top: 0; 
+.TISLR2{
+  margin-top: 150px; 
+  width: 80vw; 
+  height: 45vh; 
+  /* border: 2px solid blue;  */
+  position:relative; 
  display: flex; 
- flex-direction: column; 
-
- align-items: center; 
+ align-items: flex-start; 
+ justify-content:space-between; 
  }
  .TISLR1{
-   width: 37%; 
-   justify-content: space-around; 
-   /* border: 1px solid red;  */
+  width: 80vw; 
  }
- .TISLR2{
-  width: 39%; 
-  left: 54%; 
-  justify-content: center;
-   /* border: 1px solid red;  */
-}
+
  .TISLR1 p{
-   margin-bottom: 12px; 
-   font-size: 16px; 
-   /* border: 1px solid red;  */
+   margin-bottom: 14px; 
+   font-size: 20px; 
+ }
+ .TISLR1 p:nth-child(2){
+   padding-left: 40px; 
+ }
+ .sideParas{
+   display: flex;
  }
  #ClimateMaps h2{
-   font-size: 54px;
-   font-weight: 200;
-   margin-bottom: 20px; 
+   font-size: 82px;
+   font-weight: 100;
+   margin-bottom: 40px; 
  }
  #ClimateMaps h3{
   font-weight: 300;
   font-size: 24px; 
   font-style: italic; 
-  margin-bottom: 40px; 
+  margin-bottom: 90px; 
  }
  #ClimateMaps h4{
    font-size: 24px; 
@@ -283,8 +286,8 @@ font-size: 14px;
     justify-content: right;
     /* align-items: flex-end;  */
   align-items: flex-start; 
-    width: 75%; 
-margin: 7% 0%; 
+    width: 65%; 
+/* margin: 7% 0%;  */
   /* border: 5px solid purple;  */
    }
  #scenarios{
@@ -355,21 +358,21 @@ right: 0%;
    color: #F9ECDC;
  }
 .TISLR2 h4{
-  margin-bottom: 10px; 
+  margin-bottom: 20px; 
 }
-.nAdMap, .adMap{
-  top: (0% + 150px); 
-  left: 0%; 
-  width: 100%; 
+.nAdMap, .adMap, .floodmap {
+  width: 45%; 
 }
-.nAdMap img, .adMap img{
-  width: 100%; 
+.nAdMap img, .adMap img, .floodmap img{
+  position: absolute; 
+  width: 45%; 
 }
  .floodmap{
-   position: absolute;
-   left: 0%; 
-   width: 100%; 
    z-index: 10; 
+ }
+ .floodmap img{
+display:none; 
+border: 1px solid red; 
  }
  .medIMG, .highIMG {
    opacity: 0;  

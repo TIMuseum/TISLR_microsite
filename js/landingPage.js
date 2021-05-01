@@ -14,6 +14,7 @@ var years = document.getElementById("year");
 var noDev = document.querySelector(".nAdMap"); 
 var Dev = document.querySelector(".adMap"); 
 
+
 function nextSection(element){
     console.log("clicked!");
     console.log(element); 

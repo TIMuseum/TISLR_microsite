@@ -53,7 +53,7 @@ manager.onLoad = function ( ) {
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
   console.log(windowRatio); 
-  zRotation = windowRatio.map(.75, 2, .000035,.00002); 
+  zRotation = windowRatio.map(.75, 2, .000055,.00005); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 
@@ -94,7 +94,7 @@ if(lowerFog ==true && scene.fog.density>0){
 }
 if(notAtzero ==true && camera.rotation.z>0){
   // console.log("not there yet")
-  camera.rotation.z -=.008; 
+  camera.rotation.z -=.05; 
 };
 groupSea.position.x+=.04; 
   requestAnimationFrame(animate);

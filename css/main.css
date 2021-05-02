@@ -647,6 +647,59 @@ z-index: 10;
     /* animation-fill-mode: backwards; */
    box-shadow:-4px 4px 4px #0F6F84;
     }
+    .mainKey{
+      bottom: 2%; 
+      right: 2%; 
+      /* width: 16%;  */
+      /* height: 12%;  */
+      background-color: #F9ECDC;
+      padding: 20px 20px; 
+    }
+    #geoKey{
+      left: 2%; 
+      width: 22%; 
+    }
+    #geoKey.KeyElem{
+      justify-content: left;
+      border: 2PX SOLID RED; 
+    }
+    .KeyElem{
+      display:flex; 
+      justify-content: space-between;
+      align-items: center;
+    }
+    .KeyElem h5{
+      color: #0F6F84; 
+      text-align: left;
+    }
+    .smallColor{
+      width: 30px; 
+      height: 30px; 
+      border: .5px solid black; 
+      position: relative;
+      display:block; 
+      margin-bottom: 8px; 
+      margin-right: 10px; 
+    }
+   #purp{
+      background-color: #CDC2F6; 
+    }
+    #turqu{
+      background-color: #89CBAB; 
+    }
+    #blueWetlands{
+      background-color: #1292AF; 
+    }
+    #red{
+      background-color: #B35A49
+    }
+    #darkYel{
+      background-color: #DCB764
+    }
+    #lighYel{
+      background-color: #E7DBA9; 
+    }
+ 
     .label h3{
       font-size: 14px; 
       padding: 4px 6px; 
@@ -750,7 +803,7 @@ z-index: 10;
     .mobile h2{
       z-index: 12; 
       position: absolute; 
-      width: 60%; 
+      width: 80%; 
     left: 20%; 
       padding-top: 45%; 
       line-height: 1.6em; 

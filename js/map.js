@@ -40,6 +40,8 @@ portalLabels[0]= document.querySelectorAll('.histPortal');
 portalLabels[1]= document.querySelectorAll('.geoPortal'); 
 portalLabels[2]= document.querySelectorAll('.comPortal'); 
 portalLabels[3]= document.querySelectorAll('.adaPortal'); 
+var mainKey =  document.getElementById("mainKey"); 
+var geoKey =  document.getElementById("geoKey"); 
 // function mapWindow(input, in_min, in_max, out_min, out_max) {
 //   return (input - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 // }
@@ -53,7 +55,7 @@ manager.onLoad = function ( ) {
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
   console.log(windowRatio); 
-  zRotation = windowRatio.map(.75, 2, .000025,.00004); 
+  zRotation = windowRatio.map(.75, 2, .00002,.000037); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 
@@ -564,6 +566,7 @@ title.classList.add("fadeAway2");
       mainMapLables2.forEach(label=>{
         label.style="display:block"; 
       })
+      mainKey.style="display:block"; 
      jump(eggs);  
      mainMapView(); 
     })
@@ -616,6 +619,7 @@ title.classList.add("fadeAway2");
           mainMapLables2.forEach(label=>{
             label.style="display:none"; 
           })
+          mainKey.style="display:none";
           egg.position.y= -300; 
           //fade all main eggs and bring in sub eggs
           eggs.forEach(eggy=>{
@@ -643,7 +647,9 @@ title.classList.add("fadeAway2");
                       geos.position.y=2+index; 
                       console.log(geos); 
                       new TWEEN.Tween(geos.material).to( { opacity: 1 }, 1000 ).start();
+ 
                     })
+                    geoKey.style ="display:block"; 
                   }
                 })    
               }).start();
@@ -683,6 +689,7 @@ function goToMainMap(){
         geos.position.y=-1300; 
       }).start();
     })
+    geoKey.style ="display:none"; 
   }
   mainMapBtn.classList.add('fadeAway');
   mainMapBtn.style ="display:none"; 
@@ -707,6 +714,7 @@ subPortalObj.forEach(subPortal=>{
       mainMapLables2.forEach(label=>{
         label.style="display:block"; 
       })
+      mainKey.style="display:block";
     }).start(); 
   })
 })

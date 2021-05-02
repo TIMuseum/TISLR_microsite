@@ -239,7 +239,7 @@ padding-top: 10%;
 
  .TISLR1 p{
    margin-bottom: 14px; 
-   font-size: 2px; 
+   font-size: 22px; 
    width: 46%; 
  }
  /* .TISLR1 p:nth-child(2){
@@ -378,10 +378,14 @@ right: 0%;
   border: 1px solid red; 
  }
  .medIMG, .highIMG {
-   opacity: 0;  
+
  }
 .selectedIMG{
    opacity: 1; 
+ }
+ .remove{
+  display:none; 
+  opacity: 0;  
  }
 
  .breach{

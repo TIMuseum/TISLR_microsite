@@ -91,6 +91,24 @@ button:hover{
    left: calc(50vw - 30px); 
    animation: crescendo .7s alternate infinite ease-in; 
  }
+ .closeArrow{
+  width: 50px; 
+  height: 50px; 
+position: absolute; 
+right: 5%; 
+top: 5%; 
+ }
+ #scienceBTn{
+  margin:0 auto; 
+  animation: crescendo2 .7s alternate infinite ease-in; 
+  display: inline-block; 
+  position: relative; 
+left: 40%; 
+  margin-top: 20px; 
+ }
+ #scienceBTn h4{
+   color: #0F6F84; 
+ }
  .navButtons{
   background: #F9ECDC; 
   display: flex; 
@@ -226,7 +244,7 @@ padding-top: 10%;
 .TISLR2{
   margin-top: 225px; 
   width: 80vw; 
-  height: 45vh; 
+  height: 40vh; 
   /* border: 2px solid blue;  */
   position:relative; 
  display: flex; 
@@ -289,7 +307,8 @@ font-size: 14px;
     justify-content: right;
     /* align-items: flex-end;  */
   align-items: flex-start; 
-    width: 65%; 
+    width: 50%; 
+    margin: 0 auto; 
 /* margin: 7% 0%;  */
   /* border: 5px solid purple;  */
    }
@@ -392,13 +411,19 @@ right: 0%;
    margin-top: 250px; 
    margin-bottom: 150px; 
  }
+ .breach p{
+   font-size: 30px;
+   margin-top: 40px; 
+   line-height: 1.2em; 
+ }
  .breachContent{
    display: flex; 
    justify-content: space-between;
    margin-top: 40px; 
  }
  .breachContent p{
-   width: 40%; 
+  margin-top: 0px; 
+   width: 45%; 
    font-size:  20px;
    /* border: 1px solid red;  */
  }
@@ -417,6 +442,34 @@ right: 0%;
   margin-bottom: 40px; 
   /* margin-bottom: 40px;  */
 }
+.moreScience{
+  display: none; 
+  overflow: hidden; 
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 100; 
+  background-color:rgba(32, 94, 120, .93); 
+  opacity: 0; 
+  animation: fadeIn 2s .3s cubic-bezier(0.165, 0.840, 0.440, 1.000) forwards;
+}
+.moreScience p{
+  font-size: 24px; 
+  width: 70%; 
+  margin: 0 auto; 
+  margin-top: 20%; 
+}
+.moreScience p:nth-child(3){
+  /* border: 1px solid red;  */
+  margin-top: 5%; 
+}
+.hideOverflow{
+  overflow:hidden; 
+  /* height:100vh; */
+}
+
 /**************INTRO NARS *******************/
 .stickyBlock{
   height: 3000px; 

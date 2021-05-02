@@ -1,12 +1,23 @@
-// window.addEventListener("load", function(){
-//     // preventDefault();
-//     var scrollOptions = {
-//       left: 0,
-//       top: 0,
-//       behavior: 'auto'
-//     }
-//     window.scrollTo(scrollOptions); 
-// }); 
+window.addEventListener("load", function(){
+    // preventDefault();
+    // var scrollOptions = {
+    //   left: 0,
+    //   top: 0,
+    //   behavior: 'auto'
+    // }
+    // window.scrollTo(scrollOptions); 
+    for(let i=2; i<8; i++){
+
+      noDev.children[i].classList.add("remove")
+      noDev.children[i].classList.remove("selectedIMG")
+      Dev.children[i].classList.add("remove")
+      Dev.children[i].classList.remove("selectedIMG")
+    }
+    noDev.children[currentYR+2].classList.add("selectedIMG")
+noDev.children[currentYR+2].classList.remove("remove")
+Dev.children[currentYR+2].classList.add("selectedIMG")
+Dev.children[currentYR+2].classList.remove("remove")
+}); 
 
 var SLRswitchers = document.querySelectorAll(".SLRwitch"); 
 var SLRInches = document.getElementById("topSLR"); 
@@ -15,6 +26,10 @@ var noDev = document.querySelector(".nAdMap");
 var Dev = document.querySelector(".adMap"); 
 var medIMG = document.querySelectorAll(".medIMG"); 
 var highIMG = document.querySelectorAll(".highIMG"); 
+var moreScience = document.querySelector(".moreScience"); 
+var main = document.querySelector(".main"); 
+
+
 let currentYR = 0; 
 let highSC = false; 
 let lowSC = true; 
@@ -28,7 +43,16 @@ function nextSection(element){
         inline: "nearest"
       });
 }
-
+function openPopUp(){
+  console.log(moreScience); 
+  moreScience.style ="display:block"
+  main.classList.add("hideOverflow"); 
+  // moreScience.classList.remove("remove"); 
+  // moreScience.classList.add("show"); 
+}
+function removePopUp(){
+  moreScience.style ="display:none"
+}
 function switchScenarios(scenario, changeFrom){
   console.log(scenario)
   if (scenario.classList.contains("selected")){

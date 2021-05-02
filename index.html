@@ -121,6 +121,7 @@
             <img id="2050H"class="highIMG floodmap"src="media/2050_NODev_High.png"> 
         </div>
         </div>
+
         <div class="modelShifter">
             <div id="sliderBar">
              <div id="topSLR">
@@ -147,17 +148,32 @@
                  <button id="high"class="scenario"type="button" onclick="switchScenarios(high, med)"><h7>high slr</h7></button>
              </div>
          </div>
+         <div>       
+            <button class="navButtons" id="scienceBTn" onclick="openPopUp()">
+            <h4>More Science</h4>
+        </button>
+    </div>
          <div class ="breach">
             <h8 id="breach2">2050 Breach scenario</h8>
+            <p>The first round of Treasure Island’s redevelopment is designed to protect the island against severe flooding between now and 2050.  Nevertheless, it is possible there will be significant flooding in the event of a storm more powerful than those that cause 100-year floods. </p>
             <div class="breachContent">
-                <p>The first round of Treasure Island’s redevelopment is designed to protect the island against severe flooding between now and 2050.  Nevertheless, it is possible there will be significant flooding in the event of a storm more powerful than those that cause 100-year floods. Such extreme flood events have occurred regularly in the US over the past decade--consider Hurricanes Harvey and Sandy--and could also occur at Treasure Island.  Under such scenarios, new open space, wetlands and a 30 ft. buffer between buildings and the island’s perimeter will mitigate the effect of waves that breach the shoreline. Elevated construction pads will keep flood waters out of buildings and other critical infrastructure. This image shows how these elevated pads will protect buildings and people if such a flood occurs in the next 30 years.
+                <p>Such extreme flood events have occurred regularly in the US over the past decade--consider Hurricanes Harvey and Sandy--and could also occur at Treasure Island.  Under such scenarios, new open space, wetlands and a 30 ft. buffer between buildings and the island’s perimeter will mitigate the effect of waves that breach the shoreline. Elevated construction pads will keep flood waters out of buildings and other critical infrastructure. This image shows how these elevated pads will protect buildings and people if such a flood occurs in the next 30 years.
                 </p>
                 <div class="breachIMG">
                 <img src="media/Breach.png"> 
             </div>
             </div>
          </div>
-        </section>
+    </section>
+    <div class="moreScience">
+        <button class="closeArrow"type="button"onclick= "removePopUp()">
+            <img src="icons/Xbutton.svg"> 
+        </button>  
+        <p> The flood simulations in this Treasure Island & SLR tool show possible effects of a 100-year flood.  The exact rate of sea level increase over the next 30 years is unknown. It will be determined by how quickly glaciers melt and oceans warm. We show two different possibilities here. The medium projection includes 11” of sea-level rise from 2000 to 2050, while the high model anticipates 24” of SLR in the same period.  While the island’s current adaptation measures are designed to handle 16” of SLR, additional measures are planned should it approach that height. These additional adaptations should protect the island from flooding through 2100.  
+        </p> 
+        <p>A 100-year flood is a hypothetical scenario that scientists and engineers commonly use to assess flood risk. Based on past data, the metric represents a flood that should occur on an average of once every hundred years, when storms, tides, and tsunamis are taken into account. Exactly when such an event occurs is random, so such a flood may occur more than once in the next century if Treasure Island is unlucky. When a 100-year flood occurs, it will be destructive unless appropriate adaptation measures are taken, such as those proposed in the redevelopment plan. 
+        </p>
+    </div>
         <div id="introNar2">  
             <div class ="stickyBlock">
                 <p id="bigPara">Shoreline communities, especially those situated on legacy low-lying land such as TI, are extremely susceptible to damage from sea level rise (SLR) caused by climate change. The severity of storms is increasing along with the volume of the oceans.

@@ -23,6 +23,7 @@ let zRotation;
 let notAtzero =false;
 let zoomPositions =[]; 
 let currentPortal; 
+let isMoving =true; 
 //DOM ELEMENTS
 const canvas = document.getElementById("myCanvas");
 var loadLine = document.getElementById("loadLine"); 
@@ -55,7 +56,7 @@ manager.onLoad = function ( ) {
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
   console.log(windowRatio); 
-  zRotation = windowRatio.map(.75, 2, .000015,.00003); 
+  zRotation = windowRatio.map(.75, 2, .00001,.00002); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 
@@ -98,7 +99,20 @@ if(notAtzero ==true && camera.rotation.z>0){
   // console.log("not there yet")
   camera.rotation.z -=.05; 
 };
-groupSea.position.x+=.04; 
+
+if(groupSea.position.x<3000 && isMoving ==true){
+  groupSea.position.x+=.04;
+}
+if(groupSea.position.x>=3000){
+  isMoving ==false; 
+  groupSea.position.x=2999.9;
+}; 
+if(groupSea.position.x<3000 && isMoving ==false ){
+  groupSea.position.x-=.04;
+}
+if(groupSea.position.x<=1800){
+  isMoving ==true; 
+}
   requestAnimationFrame(animate);
   TWEEN.update(time); 
   renderer.render(scene, camera);
@@ -573,7 +587,7 @@ title.classList.add("fadeAway2");
     .start();
   }
   function jump(objects){
-    let jump= [-1, .8, .9,-1.4,1, -.8 ];   
+    let jump= [-.8, .7, .9,-1.,1, -.7 ];   
     let timeF= [900, 800, 700, 900, 700, 800]; 
     objects.forEach((object, index)=> {
       let move = new THREE.Vector3(object.position.x,object.position.y ,object.position.z+ jump[index] )

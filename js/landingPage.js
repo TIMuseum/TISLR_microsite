@@ -1,11 +1,11 @@
 window.addEventListener("load", function(){
-    // preventDefault();
-    // var scrollOptions = {
-    //   left: 0,
-    //   top: 0,
-    //   behavior: 'auto'
-    // }
-    // window.scrollTo(scrollOptions); 
+ 
+    var scrollOptions = {
+      left: 0,
+      top: 0,
+      behavior: 'auto'
+    }
+    window.scrollTo(scrollOptions); 
     for(let i=2; i<8; i++){
 
       noDev.children[i].classList.add("remove")

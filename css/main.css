@@ -481,6 +481,9 @@ right: 0%;
   justify-content: center; 
   position: relative; 
 }
+#longBlock{
+  height: 6000px; 
+}
 #bigPara, .doublePara{
  position:sticky; 
  width: 60%; 
@@ -501,7 +504,7 @@ right: 0%;
 }
 #bigPara{
   font-size: 40px; 
-  top: 40%; 
+  top: 30%; 
 }
 #smallPara{
   font-size: 24px; 
@@ -535,6 +538,17 @@ z-index: 10;
   left: 10%; 
   /* border: 1px solid red;  */
 }
+#oneB{
+  width: 50%; 
+  left: 10%; 
+  top: 45%; 
+  /* border: 1px solid red;  */
+}
+#threeB{
+  width: 40%; 
+  left: 50%; 
+
+}
  #two{
   width: 40%; 
   left: 52%; 
@@ -546,10 +560,24 @@ z-index: 10;
   left: 52%; 
   top: 16%; 
 }
+#skinnyLong{
+  width: 30%; 
+  left: 33%; 
+}
 #four{
   top: 5%; 
   left: 10%; 
-  width: 38%; 
+  width: 45%; 
+}
+#five{
+  top: 60%; 
+  left: 52%; 
+  width: 43%; 
+}
+#six{
+  top: 75%; 
+  left: 10%; 
+  width: 40%; 
 }
 #vulZone{
   width: 45%; 

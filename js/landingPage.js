@@ -68,9 +68,9 @@ function switchScenarios(scenario, changeFrom){
       console.log("medium scenario"); 
       highSC = false; 
       lowSC = true; 
-      SLRInches.children[0].children[0].innerHTML="4 in"
-      SLRInches.children[1].children[0].innerHTML="7 in"
-      SLRInches.children[2].children[0].innerHTML="11 in"
+      SLRInches.children[0].children[0].innerHTML="4 inches"
+      SLRInches.children[1].children[0].innerHTML="7 inches"
+      SLRInches.children[2].children[0].innerHTML="11 inches"
       console.log(highIMG); 
       console.log(medIMG); 
       for(let i=2; i<8; i++){
@@ -91,9 +91,9 @@ function switchScenarios(scenario, changeFrom){
       console.log("high scenario"); 
       highSC = true; 
       lowSC = false; 
-      SLRInches.children[0].children[0].innerHTML="7 in"
-      SLRInches.children[1].children[0].innerHTML="13 in"
-      SLRInches.children[2].children[0].innerHTML="24 in"
+      SLRInches.children[0].children[0].innerHTML="7 inches"
+      SLRInches.children[1].children[0].innerHTML="13 inches"
+      SLRInches.children[2].children[0].innerHTML="24 inches"
 
       for(let i=2; i<8; i++){
         noDev.children[i].classList.add("remove")

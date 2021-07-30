@@ -539,7 +539,7 @@ z-index: 10;
   /* border: 1px solid red;  */
 }
 #oneB{
-  width: 50%; 
+  width: 38%; 
   left: 10%; 
   top: 45%; 
   /* border: 1px solid red;  */
@@ -556,26 +556,26 @@ z-index: 10;
   /* border: 1px solid red;  */
 }
  #three{
-  width: 38%; 
+  width: 35%; 
   left: 52%; 
-  top: 16%; 
+  top: 25%; 
 }
 #skinnyLong{
   width: 30%; 
   left: 33%; 
 }
 #four{
-  top: 5%; 
+  top: 15%; 
   left: 10%; 
-  width: 45%; 
+  width: 40%; 
 }
 #five{
-  top: 60%; 
+  top: 50%; 
   left: 52%; 
-  width: 43%; 
+  width: 45%; 
 }
 #six{
-  top: 75%; 
+  top: 40%; 
   left: 10%; 
   width: 40%; 
 }

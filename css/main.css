@@ -156,6 +156,7 @@ right: 20px;
 color: #F9ECDC; 
 font-family: 'Lemon-milk'; 
 font-weight: 400; 
+z-index: 15; 
 }
 h4{
   font-size: 18px; 
@@ -633,6 +634,8 @@ z-index: 10;
    }
    #loading h2{
      font-size: 20px; 
+     margin-bottom:40%; 
+     z-index:8; 
    }
    .fadeAway{
       animation: fadeOut 1.5s cubic-bezier(0.165, 0.840, 0.440, 1.000) backwards;
@@ -654,8 +657,20 @@ z-index: 10;
    color: #0F6F84; 
    background-color: #F9ECDC;
    }
+h8{
+  color: #F9ECDC;
+  font-family: 'Lemon-milk'; 
+font-weight: 400; 
+  font-size: 40px; 
+    background-color:(0,0,0,0);
+    padding-left: 10%; 
+    position: sticky; 
+    top: 10%; 
+
+   }
    .popUp h1,  .popUp h2{
     padding: 10px 16px; 
+    z-index: 12;
    }
    .popUp h1{
     font-size: 80px; 

@@ -505,7 +505,7 @@ right: 0%;
 }
 #bigPara{
   font-size: 40px; 
-  top: 30%; 
+  top: 35%; 
 }
 #smallPara{
   font-size: 24px; 
@@ -548,7 +548,6 @@ z-index: 10;
 #threeB{
   width: 40%; 
   left: 50%; 
-
 }
  #two{
   width: 40%; 
@@ -560,6 +559,33 @@ z-index: 10;
   width: 35%; 
   left: 52%; 
   top: 25%; 
+}
+#one2{
+  width: 45%; 
+  left: 10%; 
+  /* border: 1px solid red;  */
+}
+#three2{
+  width: 45%; 
+  left: 52%; 
+bottom: 50vh; 
+}
+#four2{
+  /* top: 15%;  */
+  top: 500px; 
+  left: 10%; 
+  width: 40%; 
+}
+#fourB{
+  /* top: 15%;  */
+  top: 30%; 
+  left: 52%; 
+  width: 40%; 
+}
+#six2{
+  top: 75%; 
+  left: 52%; 
+  width: 40%; 
 }
 #skinnyLong{
   width: 30%; 
@@ -590,10 +616,14 @@ z-index: 10;
   left: 30%; 
   top: 1600px; 
 }
-/* #sfArticle .caption{
-  /* border: 2px solid red;  */
-  /* width: 100%;  */
-
+#infographic{
+  margin-top: 200px; 
+  width: 80%;
+  left: 10%
+}
+#low{
+  top: 60%; 
+}
 .imgContainer img{
   width: 100%; 
 }
@@ -657,6 +687,7 @@ z-index: 10;
    color: #0F6F84; 
    background-color: #F9ECDC;
    }
+
 h8{
   color: #F9ECDC;
   font-family: 'Lemon-milk'; 
@@ -665,7 +696,7 @@ font-weight: 400;
     background-color:(0,0,0,0);
     padding-left: 10%; 
     position: sticky; 
-    top: 10%; 
+    top: 15%; 
 
    }
    .popUp h1,  .popUp h2{

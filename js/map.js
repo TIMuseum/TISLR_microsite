@@ -252,7 +252,7 @@ function makeClouds(){
             depthWrite: true,
             });
            chapel = new THREE.Mesh(nGeo, nPlane);
-           chapel.position.set(-118,0, 40); 
+           chapel.position.set(-135,0, 40); 
         //Skyscrapper
         let skyScrT = loader.load("../illustrations/skyscrapper.png")
         var sGeo = new THREE.PlaneGeometry(19.76, 30);
@@ -463,7 +463,7 @@ function community(){
     depthWrite: false
     });
     environStew = new THREE.Mesh(environStewGeo, environStewPlane);
-    environStew.position.set(-160,0, 5); 
+    environStew.position.set(-160,0, 0); 
     environStew.name="environStew"; 
 //publicServ
       let publicServT = loader.load("../illustrations/foodDisrtib.png")
@@ -474,7 +474,7 @@ function community(){
         depthWrite: false
         });
         publicServ = new THREE.Mesh(publicServGeo, publicServPlane);
-        publicServ.position.set(-130,0, 30); 
+        publicServ.position.set(-150,0, 25); 
         publicServ.name="publicServ"; 
   //facil
   let facilT = loader.load("../illustrations/teaching.png")

@@ -392,7 +392,7 @@ function makeClouds(){
       depthWrite: false
       });
       soilD = new THREE.Mesh(soilDGeo, soilDPlane);
-      soilD.position.set(-95,-1300, 42); 
+      soilD.position.set(-120,-1300, 42); 
       soilD.name="soilD"; 
   //contam
         let contamT = loader.load("../illustrations/cleaning.png")

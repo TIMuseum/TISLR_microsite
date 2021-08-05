@@ -785,15 +785,17 @@ font-weight: 400;
       padding: 4px 6px; 
     }
     #histLabel{
-      bottom: 25%;
-      right: 50%;
+      bottom: 27%;
+      right: 55%;
+
     }
     #geoLabel{
-      top: 38%;
+      top: 30%;
       right: 45%;
+
     }
     #adaLabel{
-      bottom: 36%;
+      bottom:23%;
      left: 19%;
     }
     #comLabel{
@@ -841,12 +843,12 @@ font-weight: 400;
       right: 23%
     }
     #contamLabel{
-      top: 48%; 
-      left: 12%; 
+      top: 43%; 
+      left: 10%; 
     }
     #urbanDesLabel{
-      top: 19%; 
-      right: 25%
+      top: 29%; 
+      right: 18%
     }
     #greenSpLabel{
       bottom: 12%; 

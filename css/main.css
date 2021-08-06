@@ -539,6 +539,11 @@ z-index: 10;
   left: 10%; 
   /* border: 1px solid red;  */
 }
+#one2{
+  width: 90%; 
+  left: 10%; 
+  /* border: 1px solid red;  */
+}
 #oneB{
   width: 38%; 
   left: 10%; 
@@ -601,10 +606,20 @@ bottom: 50vh;
   left: 52%; 
   width: 45%; 
 }
+#five2{
+  top: 60%; 
+  left: 52%; 
+  width: 42%; 
+}
 #six{
   top: 40%; 
   left: 10%; 
   width: 40%; 
+}
+#fiveSmall{
+  top: 50%; 
+  left: 55%; 
+  width: 30%; 
 }
 #vulZone{
   width: 45%; 
@@ -623,6 +638,10 @@ bottom: 50vh;
 }
 #low{
   top: 60%; 
+}
+#wide{
+  width: 95%; 
+  left: 2.5%
 }
 .imgContainer img{
   width: 100%; 

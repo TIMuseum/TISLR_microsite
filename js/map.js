@@ -348,7 +348,7 @@ function makeClouds(){
          depthWrite:  false,
          });
          Nimitz = new THREE.Mesh(NimitzGeo, NimitzPlane);
-         Nimitz.position.set(-11,0, 30); 
+         Nimitz.position.set(-9,0, 50); 
          Nimitz.name="nimitz"; 
           //torp
        let torpT = loader.load("../illustrations/Torpedo.png")

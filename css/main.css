@@ -109,6 +109,10 @@ left: 40%;
  #scienceBTn h4{
    color: #0F6F84; 
  }
+ .navItem img{
+   /* border: 1px solid red;  */
+   width: 100%; 
+ }
  .navButtons{
   background: #F9ECDC; 
   display: flex; 
@@ -175,7 +179,7 @@ p{
  /******************************** NAVS****************************/
  .nav{
    width: 100vw; 
-   height: 4vh; 
+   height: 5vh; 
     top: 0%; 
     left: 0%; 
     background-color: #F9ECDC; 
@@ -188,7 +192,7 @@ p{
 
  }
  .navItem{
-   height: 4vh; 
+   height: 5vh; 
    position: relative; 
    display: flex; 
    align-items: center;
@@ -198,7 +202,7 @@ p{
  .navItem img{
    padding: 5px; 
   height: 100%; 
-  width: inherit; 
+  /* width: inherit;  */
  }
  #TopNav{
    position: sticky; 
@@ -851,12 +855,12 @@ font-weight: 400;
       right: 25%;
     }
     #environStewLabel{
-      top: 33%;
+      top: 22%;
       left:10%;
     }
     #publicServLabel{
-      top: 67%;
-      left: 35%;
+      top: 62%;
+      left: 25%;
     }
     #facilLabel{
         bottom: 11%; 

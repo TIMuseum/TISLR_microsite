@@ -524,7 +524,7 @@ function adaptive(){
         rainWM.position.set(-185,0,0); 
         rainWM.name="rainWM"; 
   //wetland
-      let wetlandT = loader.load("../illustrations/wetland.PNG")
+      let wetlandT = loader.load("../illustrations/wetland.png")
       var wetlandGeo = new THREE.PlaneGeometry(30.5, 25);
       var wetlandPlane = new THREE.MeshStandardMaterial({
         map: wetlandT,

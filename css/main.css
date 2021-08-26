@@ -124,6 +124,9 @@ left: 40%;
   /* bottom: 4%;  */
   top: 60px; 
  }
+ #selectedNav{
+   border-bottom: 3px solid #0F6F84; 
+ }
  #mainMapBtn{
   left: 20px; 
  }
@@ -180,6 +183,7 @@ p{
  .nav{
    width: 100vw; 
    height: 5vh; 
+   max-height: 50px; 
     top: 0%; 
     left: 0%; 
     background-color: #F9ECDC; 
@@ -193,6 +197,7 @@ p{
  }
  .navItem{
    height: 5vh; 
+   max-height: 50px; 
    position: relative; 
    display: flex; 
    align-items: center;
@@ -218,6 +223,38 @@ p{
   height: 100vh; 
   padding-top: 15%; 
 }
+#TitleScreen2{
+  text-align: center; 
+}
+#moreSpace{
+  margin-bottom: 40px; 
+}
+#aboutT1{
+  margin-bottom: 100px; 
+  /* border: 1px solid red;  */
+  font-size: 40px; 
+  font-weight: 200; 
+}
+.littleaboutsetion{
+  margin-bottom: 50px; 
+}
+#aboutSection{
+  position: absolute; 
+  margin-top: 200px;
+  /* height: 100%;  */
+  padding: 0% 15%; 
+  z-index: 12; 
+  /* border: 1px solid red;  */
+}
+#aboutSection p{
+  font-size: 26px;
+  margin-bottom: 20px; 
+}
+#aboutHeader{
+  font-size: 20px; 
+  font-weight: 300; 
+  margin-bottom: 20px; 
+}
 #titleTxt{
   /* margin-bottom: 25%;  */
 }
@@ -232,7 +269,7 @@ p{
   font-weight: 100; 
 }
 #mainSub{
-  font-size: 24px; 
+  font-size: 20px; 
   line-height: 150%; 
   letter-spacing: 1px; 
   font-weight: 300; 
@@ -488,6 +525,12 @@ right: 0%;
 }
 #longBlock{
   height: 6000px; 
+}
+#medBlock{
+  height: 4500px; 
+}
+.stickyBlock span{
+  font-size: 20px; 
 }
 #bigPara, .doublePara{
  position:sticky; 
@@ -879,16 +922,16 @@ font-weight: 400;
       right: 18%
     }
     #greenSpLabel{
-      bottom: 12%; 
-      left: 30%
+      top: 25%; 
+      right: 10%
     }
     #rainWMLabel{
-      top: 55%; 
-      right: 25%
+      top: 60%; 
+      right: 35%
     }
     #wetlandLabel{
       top: 19%; 
-      right: 25%
+      right: 40%
     }
     #adaPerLabel{
       top: 45%; 

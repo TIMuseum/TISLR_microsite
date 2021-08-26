@@ -56,7 +56,7 @@ manager.onLoad = function ( ) {
   lowerFog =true; 
   let windowRatio =window.innerWidth/window.innerHeight; 
   console.log(windowRatio); 
-  zRotation = windowRatio.map(.75, 2, .00001,.00002); 
+  zRotation = windowRatio.map(.75, 2, .00002,.00003); 
   clouds.forEach(cloud =>{
     let newcloudPos;
     let ran = Math.random(); 
@@ -150,11 +150,11 @@ function basicScene(){
 }
 function makeClouds(){
     const cloud =  new THREE.TextureLoader().load("../illustrations/cloudS.PNG");
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 50; i++) {
       const object = new THREE.Sprite(new THREE.SpriteMaterial({ map: cloud }));
       object.position.x = Math.random() *canvas.clientWidth*2  -  canvas.clientWidth;
         //height up 
-      object.position.y = Math.random() * 1300 + 150;
+      object.position.y = Math.random() * 900 + 550;
       object.position.z = Math.random() *canvas.clientHeight*2  - canvas.clientHeight;
        let scale = Math.random() * 200 + 200;
       object.scale.x = 3*scale
@@ -509,7 +509,7 @@ function adaptive(){
     });
     greenSp = new THREE.Mesh(greenSpGeo, greenSpPlane);
     greenSp.scale.set(.7, .7, .7); 
-    greenSp.position.set(-220,0, 4); 
+    greenSp.position.set(-160,10, -24); 
     greenSp.name="greenSp"; 
 //rainWM
       let rainWMT = loader.load("../illustrations/planters.png")
@@ -532,7 +532,7 @@ function adaptive(){
         depthWrite: false
         });
         wetland = new THREE.Mesh(wetlandGeo, wetlandPlane);
-        wetland.position.set(-190,0, -30); 
+        wetland.position.set(-187,0, -32); 
         wetland.scale.set(.8, .8, .8); 
         wetland.name="wetland"; 
       //adaPer
@@ -544,7 +544,7 @@ function adaptive(){
         depthWrite: false
         });
         adaPer = new THREE.Mesh(adaPerGeo, adaPerPlane);
-        adaPer.position.set(-227,0, -23); 
+        adaPer.position.set(-224,0, -24); 
         adaPer.name="adaPer";
   
      subPortalObj[3] = [greenSp, rainWM,wetland, adaPer]
@@ -650,7 +650,7 @@ title.classList.add("fadeAway2");
                 subPortalObj[index].forEach(subPortal=>{
                   //bring those subPortal Objects in
                   scene.add(subPortal); 
-                  subPortal.position.y = 10;
+                  subPortal.position.y = 7;
                   console.log(subPortal)
                   scene.add(subPortal); 
                   new TWEEN.Tween(subPortal.material).to( { opacity: 1 }, 1000 ).onComplete(()=>{

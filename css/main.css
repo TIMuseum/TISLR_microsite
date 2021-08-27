@@ -240,7 +240,28 @@ p{
   font-weight: 200; 
 }
 .littleaboutsetion{
-  margin-bottom: 50px; 
+  margin-bottom: 80px; 
+}
+.bigAboutSection{
+  margin: 300px 0px; 
+}
+.bigAboutSection h2{
+font-size: 42px; 
+}
+.bigAboutSection p{
+  margin: 50px 0px; 
+}
+.littleaboutsetion span{
+  font-style: italic;
+}
+#aboutHeader span{
+  border-bottom: 3px solid #F9ECDC;
+}
+#aboutHeader a{
+  color: #F9ECDC; 
+}
+#spacer{
+  height: 40px; 
 }
 #aboutSection{
   position: absolute; 
@@ -257,7 +278,7 @@ p{
 #aboutHeader{
   font-size: 20px; 
   font-weight: 300; 
-  margin-bottom: 20px; 
+  margin-bottom: 40px; 
 }
 #titleTxt{
   /* margin-bottom: 25%;  */

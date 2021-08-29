@@ -233,6 +233,9 @@ p{
 #moreSpace{
   margin-bottom: 40px; 
 }
+#bold{
+  font-weight: 600;
+}
 #aboutT1{
   margin-bottom: 100px; 
   /* border: 1px solid red;  */

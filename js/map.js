@@ -9,7 +9,7 @@ let camMain = {x:-100, y:140, z:10};
 //OBJECT VARIABLES
 var clouds = [];
 var seas =[]; 
-let chapel, skyscrapper, mural, beach; 
+let building1, skyscrapper, mural, beach; 
 let subPortalObj= []; 
 let BLD1, BLD2, BLD3, Nimitz, YBL, Torp; 
 let contam, urbanDes, soilD; 
@@ -243,16 +243,16 @@ function makeClouds(){
           mapGroup = new THREE.Group();
           mapGroup.add(map);
       //ADD EASTER EGGS
-      //Navy Church
-          let navyChurchT = loader.load("../illustrations/navyCh.png")
+      //Building One
+          let building1T = loader.load("../illustrations/BLD1.png")
           var nGeo = new THREE.PlaneGeometry(33.15,28.8);
           var nPlane = new THREE.MeshStandardMaterial({
-            map: navyChurchT,
+            map: building1T,
             transparent: true,
             depthWrite: true,
             });
-           chapel = new THREE.Mesh(nGeo, nPlane);
-           chapel.position.set(-145,0, 37); 
+           building1 = new THREE.Mesh(nGeo, nPlane);
+           building1.position.set(-145,0, 37); 
         //Skyscrapper
         let skyScrT = loader.load("../illustrations/skyscrapper.png")
         var sGeo = new THREE.PlaneGeometry(19.76, 30);
@@ -284,7 +284,7 @@ function makeClouds(){
           mural = new THREE.Mesh(mGeo, mPlane);
           mural.position.set(-155,0, -10); 
       //EGGS GROUP
-          eggs= [chapel, skyscrapper, mural, beach];
+          eggs= [building1, skyscrapper, mural, beach];
           eggs.forEach(egg=>{
             egg.rotation.x = -90 * (Math.PI / 180);
             egg.position.y = 6;

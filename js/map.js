@@ -252,7 +252,8 @@ function makeClouds(){
             depthWrite: true,
             });
            building1 = new THREE.Mesh(nGeo, nPlane);
-           building1.position.set(-145,0, 37); 
+           building1.position.set(-115,0, 46);
+//           building1.position.set(-145,0, 37);
         //Skyscrapper
         let skyScrT = loader.load("../illustrations/skyscrapper.png")
         var sGeo = new THREE.PlaneGeometry(19.76, 30);
